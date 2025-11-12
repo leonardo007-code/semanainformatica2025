@@ -1,0 +1,89 @@
+.aboutSection {
+  padding: 5rem 0;
+  background: var(--blanco);
+}
+
+.aboutContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.aboutHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.aboutTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--morado);
+  margin-bottom: 1rem;
+}
+
+.aboutDivider {
+  height: 4px;
+  width: 96px;
+  background: var(--dorado);
+  margin: 0 auto 1.5rem auto;
+}
+
+.aboutDescription {
+  font-size: 1.125rem;
+  color: var(--plomo);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.aboutCard {
+  background: linear-gradient(135deg, var(--morado_claro) 30%, var(--blanco) 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--morado_claro);
+  transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.aboutIcon {
+  color: var(--morado);
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.aboutCard:hover .aboutIcon {
+  color: var(--dorado);
+}
+
+.aboutCardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--morado);
+  margin-bottom: 0.5rem;
+}
+
+.aboutCardDesc {
+  color: var(--plomo);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .aboutSection {
+    padding: 3rem 0;
+  }
+  .aboutHeader {
+    margin-bottom: 2rem;
+  }
+  .aboutGrid {
+    gap: 1rem;
+  }
+  .aboutCard {
+    padding: 1.2rem 0.7rem;
+  }
+}

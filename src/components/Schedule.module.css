@@ -1,0 +1,316 @@
+.section {
+  padding: 5rem 1.5rem;
+  background: linear-gradient(to bottom, var(--morado_claro) 20%, var(--blanco) 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--morado);
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+.divider {
+  height: 4px;
+  width: 100px;
+  background: var(--dorado);
+  margin: 0 auto 1.5rem auto;
+  border-radius: 2px;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--plomo);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.scheduleCard {
+  background: var(--blanco);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.scheduleCard:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+.featured {
+  background: linear-gradient(135deg, var(--dorado) 0%, #ffc94d 100%);
+  border: 2px solid var(--morado);
+}
+.starBadge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--morado);
+  color: var(--blanco);
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.starIcon {
+  width: 22px;
+  height: 22px;
+  fill: var(--dorado);
+}
+.dayFeatured {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--morado);
+  margin-bottom: 0.5rem;
+}
+.dayName {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--dorado);
+  margin-bottom: 0.5rem;
+}
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--morado);
+  margin-bottom: 0.5rem;
+}
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--plomo);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.cardIcon {
+  width: 18px;
+  height: 18px;
+}
+.centralBadge {
+  margin-top: 1rem;
+  background: var(--morado);
+  color: var(--blanco);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+.downloadRow {
+  text-align: center;
+  margin-top: 2rem;
+}
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--morado);
+  color: var(--blanco);
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.downloadBtn:hover {
+  background: var(--plomo);
+}
+.downloadIcon {
+  width: 20px;
+  height: 20px;
+}
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalContent {
+  background: var(--blanco);
+  border-radius: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+/* Modal Header */
+.modalHeader {
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
+  background: linear-gradient(90deg, var(--morado) 60%, var(--plomo) 100%);
+  color: var(--blanco);
+  position: relative;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+.dayModal {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--dorado);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.modalTitle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+}
+.modalDetails {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1rem;
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+}
+.cardInfo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--plomo);
+  font-size: 1rem;
+}
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--blanco);
+  transition: background 0.2s;
+  z-index: 2;
+}
+.closeBtn:hover {
+  background: rgba(255,255,255,0.25);
+}
+.closeIcon {
+  width: 24px;
+  height: 24px;
+}
+/* Modal Body */
+.modalBody {
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  background: var(--blanco);
+}
+.modalDesc {
+  color: var(--plomo);
+  margin-bottom: 1.5rem;
+  font-size: 1.08rem;
+}
+.modalSubtitle {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--morado);
+  margin-bottom: 0.75rem;
+}
+.modalList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.modalListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.modalListNum {
+  background: var(--dorado);
+  color: var(--blanco);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.modalListText {
+  color: var(--plomo);
+  font-size: 1.08rem;
+}
+/* Estilos movidos del componente para actividades */
+.actividadBox {
+  background: rgba(218, 180, 86, 0.12);
+  border: 1.5px solid var(--dorado);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 2px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.actividadTitulo {
+  font-weight: 700;
+  color: var(--morado);
+  font-size: 1.08em;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.actividadLabel {
+  color: var(--morado);
+  font-weight: 600;
+}
+.actividadHora {
+  background: var(--dorado);
+  color: var(--blanco);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  .container {
+    max-width: 99vw;
+    padding: 0 1rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .modalContent {
+    max-width: 95vw;
+  }
+}

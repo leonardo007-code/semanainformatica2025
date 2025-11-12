@@ -1,0 +1,132 @@
+.section {
+  padding: 5rem 1rem;
+  background-color: var(--blanco);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.anniversary {
+  text-align: center;
+  background: linear-gradient(135deg, var(--morado) 0%, #4a2970 100%);
+  color: var(--blanco);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.icon {
+  color: var(--dorado);
+  margin: 0 auto 1.5rem;
+}
+
+.anniversaryTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--dorado);
+  margin-bottom: 1rem;
+}
+
+.anniversaryText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.95;
+}
+
+.anniversarySubtext {
+  font-size: 1.125rem;
+  opacity: 0.85;
+}
+
+.careerInfo {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  background-color: var(--gris-1);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--morado);
+}
+
+.careerTitle {
+  font-size: 1.75rem;
+  color: var(--morado);
+  margin-bottom: 1rem;
+}
+
+.careerDescription {
+  font-size: 1.05rem;
+  color: var(--plomo);
+  line-height: 1.7;
+}
+
+.sponsorsSection {
+  text-align: center;
+}
+
+.sponsorsTitle {
+  font-size: 2rem;
+  color: var(--morado);
+  margin-bottom: 0.75rem;
+}
+
+.sponsorsDescription {
+  font-size: 1rem;
+  color: var(--plomo);
+  margin-bottom: 2rem;
+}
+
+.sponsorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sponsorPlaceholder {
+  background-color: var(--gris-1);
+  border: 2px dashed var(--plomo);
+  border-radius: var(--radius-md);
+  padding: 3rem 2rem;
+  color: var(--plomo);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+}
+
+.sponsorPlaceholder:hover {
+  border-color: var(--morado);
+  color: var(--morado);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .anniversary {
+    padding: 2rem 1.5rem;
+  }
+
+  .careerInfo {
+    padding: 1.5rem;
+  }
+
+  .sponsorGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .sponsorPlaceholder {
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+  }
+}

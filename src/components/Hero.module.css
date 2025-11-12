@@ -1,0 +1,199 @@
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--morado) 0%, #4a2970 100%);
+  color: var(--blanco);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.logoLink {
+  transition: transform var(--transition-fast);
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.logoPlaceholder {
+  background-color: var(--blanco);
+  color: var(--morado);
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.badge {
+  background-color: var(--dorado);
+  color: var(--negro);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-md);
+}
+
+.content {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  flex-wrap: wrap;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all var(--transition-base);
+  min-width: 180px;
+}
+
+.btnPrimary {
+  background-color: var(--dorado);
+  color: var(--negro);
+  box-shadow: var(--shadow-md);
+}
+
+.btnPrimary:hover {
+  background-color: #f5b520;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+}
+
+.btnSecondary:hover {
+  background-color: var(--blanco);
+  color: var(--morado);
+  transform: translateY(-2px);
+}
+
+.infoCard {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.institution {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--blanco);
+}
+
+.carrera {
+  font-size: 1rem;
+  opacity: 0.9;
+  color: var(--dorado);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .logoSection {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .logoPlaceholder {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+
+  .badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .infoCard {
+    padding: 1rem 1.5rem;
+  }
+}

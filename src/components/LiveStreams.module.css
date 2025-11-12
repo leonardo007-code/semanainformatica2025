@@ -1,0 +1,285 @@
+.section {
+  padding: 5rem 1rem;
+  background-color: var(--blanco);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.icon {
+  color: var(--morado);
+  margin: 0 auto 1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--morado);
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--plomo);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.streamCard {
+  background-color: var(--blanco);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-base);
+  border: 2px solid var(--gris-1);
+  opacity: 0;
+}
+
+.streamCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.liveBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ff0000;
+  color: var(--blanco);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--blanco);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.cardHeader {
+  background: linear-gradient(135deg, var(--morado) 0%, #4a2970 100%);
+  padding: 3rem 1.5rem 1.5rem;
+  position: relative;
+}
+
+.platformBadge {
+  background-color: var(--dorado);
+  color: var(--negro);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.streamTitle {
+  font-size: 1.25rem;
+  color: var(--morado);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.streamInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--plomo);
+  font-size: 0.9rem;
+}
+
+.watchBtn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--morado);
+  color: var(--blanco);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.watchBtn:hover {
+  background-color: #4a2970;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.chatInfo {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--gris-1);
+  border-radius: var(--radius-md);
+  color: var(--plomo);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background-color: var(--blanco);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--plomo);
+  color: var(--blanco);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background-color: var(--morado);
+  transform: rotate(90deg);
+}
+
+.modalTitle {
+  font-size: 1.75rem;
+  color: var(--morado);
+  margin-bottom: 1.5rem;
+  padding-right: 3rem;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: var(--negro);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--plomo);
+  font-size: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.separator {
+  color: var(--plomo);
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .modalContent {
+    padding: 1.5rem;
+    max-height: 95vh;
+  }
+
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+}

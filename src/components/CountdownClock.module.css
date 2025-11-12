@@ -1,0 +1,43 @@
+.clockGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto 2.5rem auto;
+}
+.clockItem {
+  background: rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  padding: 1.2rem 0.5rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+.clockItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 24px rgba(251,188,48,0.15);
+}
+.value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dorado);
+  letter-spacing: 1px;
+}
+.label {
+  font-size: 1rem;
+  color: var(--morado_claro);
+  margin-top: 0.5rem;
+}
+@media (max-width: 600px) {
+  .clockGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .clockItem {
+    padding: 1rem 0.25rem;
+  }
+  .value {
+    font-size: 1.5rem;
+  }
+}
