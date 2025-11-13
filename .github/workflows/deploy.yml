@@ -1,0 +1,39 @@
+name: Deploy to hosting
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download code
+      uses: actions/checkout@v3
+
+    - name: Install node js
+      uses: actions/setup-node@v3
+      with:
+          node-version: '18'
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+    
+    - name: Upload with FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        
+        #server-dir:  /home/mgzejflo/nyuroframe/
+
+        local-dir: ./dist/
+        
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
