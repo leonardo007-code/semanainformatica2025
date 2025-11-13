@@ -53,7 +53,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
 
         <div className={styles.content}>
           <h1 ref={titleRef} className={styles.title}>
-            DEV WEEK
+            DEV WEEK 22222
           </h1>
 
           {/* Mover infoCard aquí debajo del título */}
