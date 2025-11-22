@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
-import { Calendar, Sparkles, MapPin } from 'lucide-react';
-import { enterStagger, pulseAccent } from '../utils/animations';
-import CountdownClock from './CountdownClock';
-import styles from './Hero.module.css';
+import { useEffect, useRef } from "react";
+import { Calendar, Sparkles, MapPin } from "lucide-react";
+import { enterStagger, pulseAccent } from "../utils/animations";
+import CountdownClock from "./CountdownClock";
+import styles from "./Hero.module.css";
 
 interface HeroProps {
   onScrollToRegister: () => void;
@@ -20,7 +20,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
       badgeRef.current,
       titleRef.current,
       subtitleRef.current,
-      ctaRef.current
+      ctaRef.current,
     ];
 
     enterStagger(elements.filter(Boolean), 100);
@@ -47,7 +47,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
           </a>
           <div ref={badgeRef} className={styles.badge}>
             <Sparkles size={16} />
-            <span>50 años</span>
+            <span>150 años</span>
           </div>
         </div>
 
@@ -66,26 +66,61 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
             </p>
           </div>
 
-
           <div
             ref={subtitleRef}
             className={styles.subtitle}
-            style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', marginBottom: '1.5rem' }}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "2rem",
+              marginBottom: "1.5rem",
+            }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Calendar size={20} style={{ color: 'var(--dorado)' }} />
-              <span style={{ color: 'var(--morado_claro)' }}>1 al 5 de diciembre</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ display: 'flex', alignItems: 'center' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--dorado)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <Calendar size={20} style={{ color: "var(--dorado)" }} />
+              <span style={{ color: "var(--morado_claro)" }}>
+                1 al 5 de diciembre
               </span>
-              <span style={{ color: 'var(--morado_claro)' }}>11:00 a.m. – 1:00 p.m.</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <MapPin size={20} style={{ color: 'var(--dorado)' }} />
-              <span style={{ color: 'var(--morado_claro)' }}>Ubicación</span>
-              <span style={{ fontWeight: 700, marginLeft: '0.25rem', color: 'var(--dorado)' }}>ISTTA</span>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <span style={{ display: "flex", alignItems: "center" }}>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--dorado)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </span>
+              <span style={{ color: "var(--morado_claro)" }}>
+                11:00 a.m. – 1:00 p.m.
+              </span>
+            </div>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              <MapPin size={20} style={{ color: "var(--dorado)" }} />
+              <span style={{ color: "var(--morado_claro)" }}>Ubicación</span>
+              <span
+                style={{
+                  fontWeight: 700,
+                  marginLeft: "0.25rem",
+                  color: "var(--dorado)",
+                }}
+              >
+                ISTTA
+              </span>
             </div>
           </div>
 
@@ -95,8 +130,8 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
           <div ref={ctaRef} className={styles.ctaGroup}>
             <button
               onClick={() => {
-                const el = document.getElementById('fechas');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                const el = document.getElementById("fechas");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className={styles.btnSecondary}
               aria-label="Ver agenda del evento"
@@ -112,8 +147,8 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
             </button>
             <button
               onClick={() => {
-                const el = document.getElementById('transmisiones');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                const el = document.getElementById("transmisiones");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className={styles.btnSecondary}
               aria-label="Ver transmisiones en vivo"
