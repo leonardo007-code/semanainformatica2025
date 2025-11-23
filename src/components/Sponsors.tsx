@@ -53,23 +53,40 @@ const Sponsors = () => {
             Desarrollo de Sistemas de Información
           </h3>
           <p className={styles.careerDescription}>
-            Anteriormente "Computación e Informática" (1983), renombrada hace 5
+            Anteriormente "Computación e Informática" (1983), renombrada hace 6
             años para reflejar el enfoque moderno en desarrollo de software y
             sistemas empresariales.
           </p>
         </div>
 
-        <div className={styles.sponsorsSection}>
-          <h3 className={styles.sponsorsTitle}>Sponsors & Colaboradores</h3>
-          <p className={styles.sponsorsDescription}>
-            Esta sección puede incluir logos de empresas patrocinadoras
-          </p>
-
-          <div className={styles.sponsorGrid}>
-            <div className={styles.sponsorPlaceholder}>Sponsor 1</div>
-            <div className={styles.sponsorPlaceholder}>Sponsor 2</div>
-            <div className={styles.sponsorPlaceholder}>Sponsor 3</div>
-            <div className={styles.sponsorPlaceholder}>Sponsor 4</div>
+        <div className={styles.organizedSection}>
+          <h3 className={styles.organizedTitle}>Organizado por</h3>
+          <div className={styles.divider}></div>
+          <div className={styles.organizedLogos}>
+            <a
+              href="https://www.istta.edu.pe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.organizerLogo}
+            >
+              <img
+                src="/logo-instituto-Tupac-Amaru.png"
+                alt="Instituto Superior Túpac Amaru"
+                className={styles.logoImage}
+              />
+            </a>
+            <a
+              href="https://www.istta.edu.pe/cdsi.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.organizerLogo}
+            >
+              <img
+                src="/logo-desarrollo-de-sistemas-de-informacion.png"
+                alt="Desarrollo de Sistemas de Información"
+                className={styles.logoImage}
+              />
+            </a>
           </div>
         </div>
       </div>

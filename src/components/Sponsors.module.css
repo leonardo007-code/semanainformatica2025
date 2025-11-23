@@ -313,50 +313,62 @@
   font-size: 1.05rem;
   color: var(--plomo);
   line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
-.sponsorsSection {
+.organizedSection {
   text-align: center;
+  padding: 2rem 0 1rem 0;
 }
 
-.sponsorsTitle {
-  font-size: 2rem;
+.organizedTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
   color: var(--morado);
   margin-bottom: 0.75rem;
+  font-weight: 700;
 }
 
-.sponsorsDescription {
-  font-size: 1rem;
-  color: var(--plomo);
-  margin-bottom: 2rem;
+.divider {
+  height: 4px;
+  width: 100px;
+  background: var(--dorado);
+  margin: 0 auto 3rem auto;
+  border-radius: 2px;
 }
 
-.sponsorGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.sponsorPlaceholder {
-  background-color: var(--gris-1);
-  border: 2px dashed var(--plomo);
-  border-radius: var(--radius-md);
-  padding: 3rem 2rem;
-  color: var(--plomo);
-  font-weight: 600;
+.organizedLogos {
   display: flex;
-  align-items: center;
   justify-content: center;
-  transition: all var(--transition-base);
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
 }
 
-.sponsorPlaceholder:hover {
-  border-color: var(--morado);
-  color: var(--morado);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.organizerLogo {
+  transition: all 0.3s ease;
+  max-width: 200px;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
+
+.organizerLogo:hover {
+  transform: translateY(-8px);
+}
+
+.logoImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+  opacity: 0.7;
+}
+
+.organizerLogo:hover .logoImage {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -379,15 +391,5 @@
 
   .careerInfo {
     padding: 1.5rem;
-  }
-
-  .sponsorGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .sponsorPlaceholder {
-    padding: 2rem 1rem;
-    font-size: 0.9rem;
   }
 }

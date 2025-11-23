@@ -50,9 +50,9 @@ function App() {
       >
         <Speakers />
         <LiveStreams />
-        <div ref={registerRef}>
+        {/*<div ref={registerRef}>
           <RegistrationForm />
-        </div>
+        </div>*/}
         <Sponsors />
       </Suspense>
 
