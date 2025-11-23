@@ -31,7 +31,7 @@ function App() {
       />
       <About />
       <Schedule />
-      <Bootcamp onRegister={scrollToRegister} />
+      {/*<Bootcamp onRegister={scrollToRegister} />*/}
 
       <Suspense
         fallback={

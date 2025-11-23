@@ -13,11 +13,30 @@
   margin-bottom: 3rem;
 }
 
+.titleWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .title {
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--morado);
-  margin-bottom: 0.75rem;
+  margin: 0;
   font-weight: bold;
+}
+
+.titleIcon {
+  color: var(--dorado);
+  opacity: 0;
+  transform: rotate(12deg) translateY(12px);
+  transition: all 0.3s ease;
+}
+
+.titleWrapper:hover .titleIcon {
+  opacity: 1;
+  transform: rotate(12deg) translateY(-25px) translateX(-15px);
 }
 
 .divider {
@@ -38,85 +57,194 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .scheduleCard {
   background: var(--blanco);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  border-radius: 1.25rem;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(97, 57, 140, 0.08);
   cursor: pointer;
   position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: 2px solid rgba(97, 57, 140, 0.1);
 }
+
+.scheduleCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--morado);
+  transition: width 0.3s ease;
+}
+
+.scheduleCard:hover::before {
+  width: 10px;
+}
+
 .scheduleCard:hover {
-  transform: scale(1.04);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(97, 57, 140, 0.2);
 }
+
 .featured {
-  background: linear-gradient(135deg, var(--dorado) 0%, #ffc94d 100%);
-  border: 2px solid var(--morado);
+  background: var(--blanco);
+  border: 3px solid var(--dorado);
+  box-shadow: 0 8px 30px rgba(218, 180, 86, 0.25);
 }
+
+.featured::before {
+  background: var(--dorado);
+  width: 8px;
+}
+
+.featured:hover {
+  box-shadow: 0 12px 45px rgba(218, 180, 86, 0.35);
+}
+
 .starBadge {
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -14px;
+  right: -14px;
   background: var(--morado);
   color: var(--blanco);
   border-radius: 50%;
-  padding: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 0.65rem;
+  box-shadow: 0 4px 12px rgba(97, 57, 140, 0.3);
+  z-index: 10;
+  animation: pulse 2s ease-in-out infinite;
 }
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 .starIcon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   fill: var(--dorado);
 }
+
+/* Ribbon corner decoration */
+.ribbon {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  width: 140px;
+  background: var(--dorado);
+  color: var(--morado);
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  box-shadow: 0 3px 10px rgba(218, 180, 86, 0.4);
+  z-index: 5;
+}
+
 .dayFeatured {
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   color: var(--morado);
-  margin-bottom: 0.5rem;
+  margin: 1.5rem 1.5rem 0.75rem 2rem;
+  text-transform: uppercase;
 }
+
 .dayName {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--dorado);
-  margin-bottom: 0.5rem;
-}
-.cardTitle {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   color: var(--morado);
-  margin-bottom: 0.5rem;
+  margin: 1.5rem 1.5rem 0.75rem 2rem;
+  text-transform: uppercase;
 }
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--morado);
+  margin: 0 1.5rem 1rem 2rem;
+  line-height: 1.3;
+}
+
 .cardInfo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: var(--plomo);
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+  margin: 0 1.5rem 0.6rem 2rem;
+  font-weight: 500;
 }
+
 .cardIcon {
   width: 18px;
   height: 18px;
+  color: var(--dorado);
 }
-.centralBadge {
-  margin-top: 1rem;
+
+.detailsBtn {
+  margin: 1rem 1.5rem 1.5rem 2rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 2px solid var(--morado);
+  color: var(--morado);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.3px;
+}
+
+.detailsBtn:hover {
   background: var(--morado);
   color: var(--blanco);
-  font-size: 0.85rem;
-  font-weight: bold;
-  padding: 0.3rem 1rem;
+  transform: translateX(3px);
+}
+
+.featured .detailsBtn {
+  border-color: var(--dorado);
+  color: var(--dorado);
+}
+
+.featured .detailsBtn:hover {
+  background: var(--dorado);
+  color: var(--morado);
+}
+
+.centralBadge {
+  margin: 1.25rem 1.5rem 1.5rem 2rem;
+  background: var(--morado);
+  color: var(--blanco);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
   border-radius: 999px;
   display: inline-block;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(97, 57, 140, 0.3);
 }
 .downloadRow {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 3.5rem;
 }
 .downloadBtn {
   display: inline-flex;
@@ -130,10 +258,16 @@
   font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  border: 2px solid var(--morado);
 }
+
 .downloadBtn:hover {
-  background: var(--plomo);
+  background: var(--dorado);
+  color: var(--morado);
+  border-color: var(--dorado);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(218, 180, 86, 0.4);
 }
 .downloadIcon {
   width: 20px;
@@ -142,60 +276,82 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeInOverlay 0.3s ease;
 }
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .modalContent {
   background: var(--blanco);
   border-radius: 1.5rem;
   max-width: 900px;
-  width: 100%;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
-  overflow: hidden;
-  animation: fadeIn 0.3s;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-@keyframes fadeIn {
+
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 /* Modal Header */
 .modalHeader {
-  padding: 1.5rem 2.5rem 1rem 2.5rem;
-  background: linear-gradient(90deg, var(--morado) 60%, var(--plomo) 100%);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  background: var(--morado);
   color: var(--blanco);
   position: relative;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
 }
+
 .dayModal {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--dorado);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 .modalTitle {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: 700;
   color: var(--blanco);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
 }
 .modalDetails {
   display: flex;
   gap: 1.5rem;
   font-size: 1rem;
   color: var(--blanco);
-  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.modalDetails .cardInfo {
+  color: var(--blanco);
+}
+
+.modalDetails .cardIcon {
+  color: var(--dorado);
 }
 .cardInfo {
   display: inline-flex;
@@ -224,35 +380,42 @@
   width: 24px;
   height: 24px;
 }
+
 /* Modal Body */
 .modalBody {
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
   background: var(--blanco);
 }
+
 .modalDesc {
   color: var(--plomo);
-  margin-bottom: 1.5rem;
-  font-size: 1.08rem;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
+
 .modalSubtitle {
-  font-size: 1.15rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--morado);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
 }
+
 .modalList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .modalListItem {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
+
 .modalListNum {
-  background: var(--dorado);
+  background: var(--morado);
   color: var(--blanco);
   border-radius: 50%;
   width: 28px;
@@ -264,14 +427,16 @@
   font-size: 1rem;
   flex-shrink: 0;
 }
+
 .modalListText {
   color: var(--plomo);
   font-size: 1.08rem;
 }
+
 /* Estilos movidos del componente para actividades */
 .actividadBox {
-  background: rgba(218, 180, 86, 0.12);
-  border: 1.5px solid var(--dorado);
+  background: rgba(97, 57, 140, 0.05);
+  border: 1.5px solid rgba(97, 57, 140, 0.2);
   border-radius: 8px;
   padding: 10px 14px;
   margin: 2px 0;
@@ -281,6 +446,7 @@
   gap: 1.5rem;
   flex-wrap: wrap;
 }
+
 .actividadTitulo {
   font-weight: 700;
   color: var(--morado);
@@ -289,12 +455,14 @@
   align-items: center;
   gap: 1rem;
 }
+
 .actividadLabel {
   color: var(--morado);
   font-weight: 600;
 }
+
 .actividadHora {
-  background: var(--dorado);
+  background: var(--morado);
   color: var(--blanco);
   border-radius: 6px;
   padding: 2px 8px;

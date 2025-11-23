@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { Search, Calendar } from 'lucide-react';
-import { fadeInUp, batchHoverLift } from '../utils/animations';
-import styles from './Speakers.module.css';
+import { useState, useEffect, useRef } from "react";
+import { Search, Calendar, Users } from "lucide-react";
+import { fadeInUp, batchHoverLift } from "../utils/animations";
+import styles from "./Speakers.module.css";
 
 interface Speaker {
   id: number;
@@ -17,91 +17,91 @@ interface Speaker {
 const SPEAKERS_DATA: Speaker[] = [
   {
     id: 1,
-    name: 'Ana García',
-    role: 'Senior Developer en Google',
-    bio: 'Experta en arquitectura de software con 10 años de experiencia',
-    topic: 'Microservicios Modernos',
-    day: 'Lunes',
-    time: '10:00 AM',
-    image: '/placeholder-speaker.jpg'
+    name: "Ana García",
+    role: "Senior Developer en Google",
+    bio: "Experta en arquitectura de software con 10 años de experiencia",
+    topic: "Microservicios Modernos",
+    day: "Lunes",
+    time: "10:00 AM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 2,
-    name: 'Carlos Mendoza',
-    role: 'Tech Lead en Microsoft',
-    bio: 'Especialista en cloud computing y DevOps automation',
-    topic: 'Azure y DevOps',
-    day: 'Lunes',
-    time: '2:00 PM',
-    image: '/placeholder-speaker.jpg'
+    name: "Carlos Mendoza",
+    role: "Tech Lead en Microsoft",
+    bio: "Especialista en cloud computing y DevOps automation",
+    topic: "Azure y DevOps",
+    day: "Lunes",
+    time: "2:00 PM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 3,
-    name: 'María López',
-    role: 'UX Designer en Airbnb',
-    bio: 'Diseñadora centrada en experiencia de usuario y accesibilidad',
-    topic: 'Diseño Inclusivo',
-    day: 'Martes',
-    time: '11:00 AM',
-    image: '/placeholder-speaker.jpg'
+    name: "María López",
+    role: "UX Designer en Airbnb",
+    bio: "Diseñadora centrada en experiencia de usuario y accesibilidad",
+    topic: "Diseño Inclusivo",
+    day: "Martes",
+    time: "11:00 AM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 4,
-    name: 'Roberto Silva',
-    role: 'CTO en Startup Tech',
-    bio: 'Emprendedor tecnológico y mentor de startups innovadoras',
-    topic: 'Emprendimiento Tech',
-    day: 'Martes',
-    time: '3:00 PM',
-    image: '/placeholder-speaker.jpg'
+    name: "Roberto Silva",
+    role: "CTO en Startup Tech",
+    bio: "Emprendedor tecnológico y mentor de startups innovadoras",
+    topic: "Emprendimiento Tech",
+    day: "Martes",
+    time: "3:00 PM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 5,
-    name: 'Laura Ramirez',
-    role: 'AI Engineer en OpenAI',
-    bio: 'Investigadora en inteligencia artificial y machine learning',
-    topic: 'IA Generativa',
-    day: 'Miércoles',
-    time: '9:00 AM',
-    image: '/placeholder-speaker.jpg'
+    name: "Laura Ramirez",
+    role: "AI Engineer en OpenAI",
+    bio: "Investigadora en inteligencia artificial y machine learning",
+    topic: "IA Generativa",
+    day: "Miércoles",
+    time: "9:00 AM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 6,
-    name: 'Diego Torres',
-    role: 'Security Expert',
-    bio: 'Especialista en ciberseguridad y ethical hacking',
-    topic: 'Seguridad Web',
-    day: 'Jueves',
-    time: '10:00 AM',
-    image: '/placeholder-speaker.jpg'
+    name: "Diego Torres",
+    role: "Security Expert",
+    bio: "Especialista en ciberseguridad y ethical hacking",
+    topic: "Seguridad Web",
+    day: "Jueves",
+    time: "10:00 AM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 7,
-    name: 'Patricia Vega',
-    role: 'Data Scientist en Amazon',
-    bio: 'Analista de datos con enfoque en big data y analytics',
-    topic: 'Big Data Analytics',
-    day: 'Jueves',
-    time: '2:00 PM',
-    image: '/placeholder-speaker.jpg'
+    name: "Patricia Vega",
+    role: "Data Scientist en Amazon",
+    bio: "Analista de datos con enfoque en big data y analytics",
+    topic: "Big Data Analytics",
+    day: "Jueves",
+    time: "2:00 PM",
+    image: "/placeholder-speaker.jpg",
   },
   {
     id: 8,
-    name: 'Javier Ruiz',
-    role: 'Mobile Developer Lead',
-    bio: 'Desarrollador móvil experto en React Native y Flutter',
-    topic: 'Desarrollo Móvil',
-    day: 'Viernes',
-    time: '11:00 AM',
-    image: '/placeholder-speaker.jpg'
+    name: "Javier Ruiz",
+    role: "Mobile Developer Lead",
+    bio: "Desarrollador móvil experto en React Native y Flutter",
+    topic: "Desarrollo Móvil",
+    day: "Viernes",
+    time: "11:00 AM",
+    image: "/placeholder-speaker.jpg",
   },
 ];
 
-const DAYS = ['Todos', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+const DAYS = ["Todos", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
 const Speakers = () => {
-  const [selectedDay, setSelectedDay] = useState('Todos');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedDay, setSelectedDay] = useState("Todos");
+  const [searchTerm, setSearchTerm] = useState("");
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -116,8 +116,8 @@ const Speakers = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const filteredSpeakers = SPEAKERS_DATA.filter(speaker => {
-    const matchesDay = selectedDay === 'Todos' || speaker.day === selectedDay;
+  const filteredSpeakers = SPEAKERS_DATA.filter((speaker) => {
+    const matchesDay = selectedDay === "Todos" || speaker.day === selectedDay;
     const matchesSearch =
       speaker.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       speaker.topic.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -129,7 +129,11 @@ const Speakers = () => {
     <section ref={sectionRef} className={styles.section} id="ponentes">
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Ponentes & Agenda</h2>
+          <div className={styles.titleWrapper}>
+            <h2 className={styles.title}>Nuestros Ponentes</h2>
+            <Users size={28} className={styles.titleIcon} />
+          </div>
+          <div className={styles.divider}></div>
           <p className={styles.description}>
             Aprende de los mejores profesionales de la industria tecnológica
           </p>
@@ -149,11 +153,13 @@ const Speakers = () => {
           </div>
 
           <div className={styles.filters}>
-            {DAYS.map(day => (
+            {DAYS.map((day) => (
               <button
                 key={day}
                 onClick={() => setSelectedDay(day)}
-                className={`${styles.filterBtn} ${selectedDay === day ? styles.active : ''}`}
+                className={`${styles.filterBtn} ${
+                  selectedDay === day ? styles.active : ""
+                }`}
                 aria-pressed={selectedDay === day}
               >
                 {day}
@@ -163,11 +169,14 @@ const Speakers = () => {
         </div>
 
         <div className={styles.grid}>
-          {filteredSpeakers.map(speaker => (
+          {filteredSpeakers.map((speaker) => (
             <div key={speaker.id} className={styles.speakerCard}>
               <div className={styles.imageContainer}>
                 <div className={styles.imagePlaceholder}>
-                  {speaker.name.split(' ').map(n => n[0]).join('')}
+                  {speaker.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </div>
               </div>
               <div className={styles.content}>
@@ -180,7 +189,9 @@ const Speakers = () => {
                 </div>
                 <div className={styles.schedule}>
                   <Calendar size={16} />
-                  <span>{speaker.day} - {speaker.time}</span>
+                  <span>
+                    {speaker.day} - {speaker.time}
+                  </span>
                 </div>
               </div>
             </div>

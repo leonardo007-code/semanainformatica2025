@@ -1,29 +1,33 @@
-import { useEffect, useRef } from 'react';
-import { Code2, Users, Lightbulb, Rocket } from 'lucide-react';
-import * as anime from 'animejs';
-import styles from './About.module.css';
+import { useEffect, useRef } from "react";
+import { Code2, Users, Lightbulb, Rocket, Laptop } from "lucide-react";
+import anime from "animejs";
+import styles from "./About.module.css";
 
 const features = [
   {
-    icon: <Code2 className={styles.aboutIcon} />,
-    title: 'Innovación Tecnológica',
-    description: 'Explora las últimas tendencias en desarrollo de software y herramientas modernas'
+    icon: <Code2 size={48} className={styles.aboutIcon} />,
+    title: "Innovación Tecnológica",
+    description:
+      "Explora las últimas tendencias en desarrollo de software y herramientas modernas",
   },
   {
-    icon: <Users className={styles.aboutIcon} />,
-    title: 'Networking',
-    description: 'Conecta con profesionales, expertos del sector y estudiantes apasionados por la tecnología'
+    icon: <Users size={48} className={styles.aboutIcon} />,
+    title: "Networking",
+    description:
+      "Conecta con profesionales, expertos del sector y estudiantes apasionados por la tecnología",
   },
   {
-    icon: <Lightbulb className={styles.aboutIcon} />,
-    title: 'Aprendizaje Práctico',
-    description: 'Workshops y bootcamps hands-on para desarrollar habilidades reales y aplicables'
+    icon: <Lightbulb size={48} className={styles.aboutIcon} />,
+    title: "Aprendizaje Práctico",
+    description:
+      "Workshops y bootcamps hands-on para desarrollar habilidades reales y aplicables",
   },
   {
-    icon: <Rocket className={styles.aboutIcon} />,
-    title: 'Impulso Profesional',
-    description: 'Oportunidades laborales, mentoría y consejos para acelerar tu carrera tech'
-  }
+    icon: <Rocket size={48} className={styles.aboutIcon} />,
+    title: "Impulso Profesional",
+    description:
+      "Oportunidades laborales, mentoría y consejos para acelerar tu carrera tech",
+  },
 ];
 
 export default function About() {
@@ -40,7 +44,7 @@ export default function About() {
               opacity: [0, 1],
               duration: 800,
               delay: anime.stagger(150),
-              easing: 'easeOutExpo'
+              easing: "easeOutExpo",
             });
           }
         });
@@ -59,29 +63,28 @@ export default function About() {
     <section ref={sectionRef} id="about" className={styles.aboutSection}>
       <div className={styles.aboutContainer}>
         <div className={styles.aboutHeader}>
-          <h2 className={styles.aboutTitle}>
-            ¿Qué es DEV WEEK?
-          </h2>
+          <div className={styles.titleWrapper}>
+            <h2 className={styles.aboutTitle}>¿Qué es DEV WEEK?</h2>
+            <Laptop size={28} className={styles.titleIcon} />
+          </div>
           <div className={styles.aboutDivider}></div>
           <p className={styles.aboutDescription}>
-            La Semana Informática más importante del ISTTA, organizada por estudiantes del VI ciclo de
-            <span style={{ fontWeight: 600, color: 'var(--morado)' }}> Desarrollo de Sistemas de Información</span>.
-            Un evento diseñado para inspirar, educar y conectar a la comunidad tecnológica.
+            La Semana Informática más importante del ISTTA, organizada por
+            estudiantes del VI ciclo de
+            <span style={{ fontWeight: 600, color: "var(--morado)" }}>
+              {" "}
+              Desarrollo de Sistemas de Información
+            </span>
+            . Un evento diseñado para inspirar, educar y conectar a la comunidad
+            tecnológica.
           </p>
         </div>
         <div className={styles.aboutGrid}>
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className={styles.aboutCard}
-            >
+            <div key={index} className={styles.aboutCard}>
               {feature.icon}
-              <h3 className={styles.aboutCardTitle}>
-                {feature.title}
-              </h3>
-              <p className={styles.aboutCardDesc}>
-                {feature.description}
-              </p>
+              <h3 className={styles.aboutCardTitle}>{feature.title}</h3>
+              <p className={styles.aboutCardDesc}>{feature.description}</p>
             </div>
           ))}
         </div>

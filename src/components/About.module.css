@@ -14,11 +14,30 @@
   margin-bottom: 4rem;
 }
 
+.titleWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 .aboutTitle {
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--morado);
-  margin-bottom: 1rem;
+  margin: 0;
+}
+
+.titleIcon {
+  color: var(--dorado);
+  opacity: 0;
+  transform: rotate(12deg) translateY(12px);
+  transition: all 0.3s ease;
+}
+
+.titleWrapper:hover .titleIcon {
+  opacity: 1;
+  transform: rotate(12deg) translateY(-25px) translateX(-15px);
 }
 
 .aboutDivider {
@@ -44,28 +63,59 @@
 
 .aboutCard {
   background: var(--blanco);
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   border-radius: 1rem;
-  border: 1px solid var(--morado_claro);
-  transition: all 0.3s;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0s;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  position: relative;
+  border: 2px solid rgba(97, 57, 140, 0.15);
+}
+
+.aboutCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(97, 57, 140, 0.2);
+  border-color: var(--dorado);
 }
 
 .aboutIcon {
   color: var(--morado);
-  margin-bottom: 1rem;
-  transition: color 0.3s;
+  margin: 0 auto 1.5rem;
+  transition: color 0.1s ease;
+  display: block;
 }
 
 .aboutCard:hover .aboutIcon {
   color: var(--dorado);
+  animation: iconBounce 1s ease infinite;
+}
+
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(-8px);
+  }
 }
 
 .aboutCardTitle {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--morado);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  transition: color 0s;
+}
+
+.aboutCard:hover .aboutCardTitle {
+  color: var(--dorado);
 }
 
 .aboutCardDesc {

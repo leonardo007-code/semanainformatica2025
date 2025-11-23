@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Calendar, Clock, Download, X, Star } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Download,
+  X,
+  CalendarDays,
+  ChevronRight,
+} from "lucide-react";
 import { enterStagger } from "../utils/animations";
 import { diasEvento } from "../data/schedule";
 import { Dia, Actividad } from "../types";
@@ -27,14 +34,29 @@ export default function Schedule() {
     return () => observer.disconnect();
   }, []);
 
+  // Bloquear scroll cuando el modal está abierto
+  useEffect(() => {
+    if (selectedDay) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedDay]);
+
   return (
     <section ref={sectionRef} id="cronograma" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Cronograma de la Semana</h2>
+          <div className={styles.titleWrapper}>
+            <h2 className={styles.title}>Cronograma de la Semana</h2>
+            <CalendarDays size={28} className={styles.titleIcon} />
+          </div>
           <div className={styles.divider}></div>
           <p className={styles.description}>
-            Cinco días intensivos de aprendizaje, innovación y networking
+            Cinco días intensivos de aprendizaje e innovación
           </p>
         </div>
         <div className={styles.grid}>
@@ -47,8 +69,8 @@ export default function Schedule() {
               }`}
             >
               {dia.destacado && (
-                <div className={styles.starBadge}>
-                  <Star className={styles.starIcon} />
+                <div className={styles.ribbon}>
+                  <span>DESTACADO</span>
                 </div>
               )}
               <div
@@ -65,9 +87,10 @@ export default function Schedule() {
                 <Clock className={styles.cardIcon} />
                 <span>{dia.hora}</span>
               </div>
-              {dia.destacado && (
-                <div className={styles.centralBadge}>¡DÍA CENTRAL!</div>
-              )}
+              <button className={styles.detailsBtn}>
+                Ver detalles
+                <ChevronRight size={16} />
+              </button>
             </div>
           ))}
         </div>
@@ -79,8 +102,14 @@ export default function Schedule() {
         </div>
       </div>
       {selectedDay && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modalContent}>
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setSelectedDay(null)}
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={styles.modalHeader}>
               <div>
                 <div className={styles.dayModal}>
