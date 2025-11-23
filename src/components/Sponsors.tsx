@@ -1,7 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { Award } from 'lucide-react';
-import { fadeInUp } from '../utils/animations';
-import styles from './Sponsors.module.css';
+import { useEffect, useRef } from "react";
+import { fadeInUp } from "../utils/animations";
+import styles from "./Sponsors.module.css";
 
 const Sponsors = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,14 +15,37 @@ const Sponsors = () => {
     <section ref={sectionRef} className={styles.section}>
       <div className={styles.container}>
         <div className={styles.anniversary}>
-          <Award className={styles.icon} size={48} />
-          <h2 className={styles.anniversaryTitle}>50 Años de Excelencia</h2>
-          <p className={styles.anniversaryText}>
-            Instituto de Educación Superior Túpac Amaru
-          </p>
-          <p className={styles.anniversarySubtext}>
-            Formando profesionales desde 1975
-          </p>
+          <div className={styles.anniversaryContent}>
+            <div className={styles.logoSection}>
+              <span className={styles.sparkle1}></span>
+              <span className={styles.sparkle2}></span>
+              <span className={styles.sparkle3}></span>
+              <span className={styles.sparkle4}></span>
+              <img
+                src="/Logo-50-años-instituto-Tupac-Amaru.png"
+                alt="Logo 50 años Instituto Túpac Amaru"
+                className={styles.logo}
+              />
+              <p className={styles.anniversarySubtext}>
+                Formando profesionales técnicos de calidad
+              </p>
+              <a
+                href="https://www.istta.edu.pe/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.websiteLink}
+              >
+                www.istta.edu.pe
+              </a>
+            </div>
+            <div className={styles.imageSection}>
+              <img
+                src="/chica-señalando-lado-derecho-color.png"
+                alt="Estudiante señalando"
+                className={styles.studentImage}
+              />
+            </div>
+          </div>
         </div>
 
         <div className={styles.careerInfo}>
@@ -31,8 +53,9 @@ const Sponsors = () => {
             Desarrollo de Sistemas de Información
           </h3>
           <p className={styles.careerDescription}>
-            Anteriormente "Computación e Informática" (1983), renombrada hace 5 años para
-            reflejar el enfoque moderno en desarrollo de software y sistemas empresariales.
+            Anteriormente "Computación e Informática" (1983), renombrada hace 5
+            años para reflejar el enfoque moderno en desarrollo de software y
+            sistemas empresariales.
           </p>
         </div>
 
@@ -43,18 +66,10 @@ const Sponsors = () => {
           </p>
 
           <div className={styles.sponsorGrid}>
-            <div className={styles.sponsorPlaceholder}>
-              Sponsor 1
-            </div>
-            <div className={styles.sponsorPlaceholder}>
-              Sponsor 2
-            </div>
-            <div className={styles.sponsorPlaceholder}>
-              Sponsor 3
-            </div>
-            <div className={styles.sponsorPlaceholder}>
-              Sponsor 4
-            </div>
+            <div className={styles.sponsorPlaceholder}>Sponsor 1</div>
+            <div className={styles.sponsorPlaceholder}>Sponsor 2</div>
+            <div className={styles.sponsorPlaceholder}>Sponsor 3</div>
+            <div className={styles.sponsorPlaceholder}>Sponsor 4</div>
           </div>
         </div>
       </div>

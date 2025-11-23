@@ -10,17 +10,253 @@
 
 .anniversary {
   text-align: center;
-  background: linear-gradient(135deg, var(--morado) 0%, #4a2970 100%);
+  background: linear-gradient(
+      135deg,
+      rgba(97, 57, 140, 0.9) 50%,
+      rgba(97, 57, 140, 0.75) 50%
+    ),
+    url("/fondo-instituto-superior-Tupac-Amaru.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--blanco);
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 3rem 2rem;
   border-radius: var(--radius-lg);
   margin-bottom: 3rem;
   box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: visible;
 }
 
-.icon {
-  color: var(--dorado);
-  margin: 0 auto 1.5rem;
+.anniversaryContent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.logoSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* Elementos para explosiones de chispas */
+.logoSection::before,
+.logoSection::after,
+.sparkle1,
+.sparkle2,
+.sparkle3,
+.sparkle4 {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Activar todas las explosiones en hover */
+.anniversary:hover .logoSection::before {
+  opacity: 1;
+  animation: sparkleExplosion1 2s ease-out infinite;
+}
+
+.anniversary:hover .logoSection::after {
+  opacity: 1;
+  animation: sparkleExplosion2 2s ease-out infinite 0.4s;
+}
+
+.anniversary:hover .sparkle1 {
+  opacity: 1;
+  animation: sparkleExplosion3 2s ease-out infinite 0.8s;
+}
+
+.anniversary:hover .sparkle2 {
+  opacity: 1;
+  animation: sparkleExplosion4 2s ease-out infinite 1.2s;
+}
+
+.anniversary:hover .sparkle3 {
+  opacity: 1;
+  animation: sparkleExplosion5 2s ease-out infinite 0.3s;
+}
+
+.anniversary:hover .sparkle4 {
+  opacity: 1;
+  animation: sparkleExplosion6 2s ease-out infinite 0.7s;
+}
+
+/* Explosión 1 - Centro superior */
+@keyframes sparkleExplosion1 {
+  0% {
+    top: 20%;
+    left: 50%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 20%;
+    left: 50%;
+    box-shadow: -70px -70px 1px 0px transparent, 0px -90px 1px 0px transparent,
+      70px -70px 1px 0px transparent, 90px 0px 1px 0px transparent,
+      70px 70px 1px 0px transparent, 0px 90px 1px 0px transparent,
+      -70px 70px 1px 0px transparent, -90px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 2 - Esquina superior derecha */
+@keyframes sparkleExplosion2 {
+  0% {
+    top: 25%;
+    right: 20%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 25%;
+    right: 20%;
+    box-shadow: -65px -65px 1px 0px transparent, 0px -85px 1px 0px transparent,
+      65px -65px 1px 0px transparent, 85px 0px 1px 0px transparent,
+      65px 65px 1px 0px transparent, 0px 85px 1px 0px transparent,
+      -65px 65px 1px 0px transparent, -85px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 3 - Centro izquierda */
+@keyframes sparkleExplosion3 {
+  0% {
+    top: 45%;
+    left: 15%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 45%;
+    left: 15%;
+    box-shadow: -75px -75px 1px 0px transparent, 0px -95px 1px 0px transparent,
+      75px -75px 1px 0px transparent, 95px 0px 1px 0px transparent,
+      75px 75px 1px 0px transparent, 0px 95px 1px 0px transparent,
+      -75px 75px 1px 0px transparent, -95px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 4 - Centro derecha */
+@keyframes sparkleExplosion4 {
+  0% {
+    top: 40%;
+    right: 15%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 40%;
+    right: 15%;
+    box-shadow: -80px -80px 1px 0px transparent, 0px -100px 1px 0px transparent,
+      80px -80px 1px 0px transparent, 100px 0px 1px 0px transparent,
+      80px 80px 1px 0px transparent, 0px 100px 1px 0px transparent,
+      -80px 80px 1px 0px transparent, -100px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 5 - Esquina inferior izquierda */
+@keyframes sparkleExplosion5 {
+  0% {
+    bottom: 25%;
+    left: 25%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    bottom: 25%;
+    left: 25%;
+    box-shadow: -70px -70px 1px 0px transparent, 0px -90px 1px 0px transparent,
+      70px -70px 1px 0px transparent, 90px 0px 1px 0px transparent,
+      70px 70px 1px 0px transparent, 0px 90px 1px 0px transparent,
+      -70px 70px 1px 0px transparent, -90px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 6 - Centro inferior */
+@keyframes sparkleExplosion6 {
+  0% {
+    bottom: 20%;
+    left: 50%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    bottom: 20%;
+    left: 50%;
+    box-shadow: -75px -75px 1px 0px transparent, 0px -95px 1px 0px transparent,
+      75px -75px 1px 0px transparent, 95px 0px 1px 0px transparent,
+      75px 75px 1px 0px transparent, 0px 95px 1px 0px transparent,
+      -75px 75px 1px 0px transparent, -95px 0px 1px 0px transparent;
+  }
+}
+
+.anniversaryContent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.logoSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.logo {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+  /*filter: brightness(0) invert(1);*/ /*linea de codigo para cambiar de color*/
+}
+
+.imageSection {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: -3rem;
+  margin-right: -2rem;
+}
+
+.studentImage {
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .anniversaryTitle {
@@ -37,8 +273,24 @@
 }
 
 .anniversarySubtext {
-  font-size: 1.125rem;
-  opacity: 0.85;
+  font-size: 1.35rem;
+  opacity: 0.95;
+  margin-bottom: 1rem;
+}
+
+.websiteLink {
+  color: var(--dorado);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.websiteLink:hover {
+  color: var(--blanco);
+  transform: translateY(-2px);
+  text-decoration: underline;
 }
 
 .careerInfo {
@@ -114,6 +366,15 @@
 
   .anniversary {
     padding: 2rem 1.5rem;
+  }
+
+  .anniversaryContent {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .studentImage {
+    max-width: 250px;
   }
 
   .careerInfo {
