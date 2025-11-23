@@ -1,43 +1,138 @@
+/* Wrapper for the countdown clock */
+.countdownWrapper {
+  flex: 0 0 auto;
+}
+
+/* Header section */
+.countdownHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.countdownTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--blanco);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.95;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+/* Subtle underline accent */
+.countdownTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+}
+
+/* Clock grid */
 .clockGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  max-width: 400px;
-  margin: 2rem auto 2.5rem auto;
+  gap: 1.25rem;
 }
+
+/* Clock items - elegant and minimal */
 .clockItem {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
   border-radius: 1rem;
-  padding: 1.2rem 0.5rem;
-  border: 1px solid rgba(255,255,255,0.18);
+  padding: 2rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
+
 .clockItem:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 24px rgba(251,188,48,0.15);
+  transform: translateY(-3px);
+  border-color: rgba(139, 95, 191, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 30px rgba(139, 95, 191, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
+
+/* Values styling - clean and bold */
 .value {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: var(--dorado);
   letter-spacing: 1px;
+  line-height: 1;
+  font-family: var(--font-heading);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  min-width: 2ch; /* Ensure consistent width */
+  text-align: center;
 }
+
+/* Flip animation when value changes */
+@keyframes flipIn {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Apply animation class via JavaScript when value changes */
+.valueAnimating {
+  animation: flipIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Labels styling - minimal and elegant */
 .label {
-  font-size: 1rem;
-  color: var(--morado_claro);
-  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
+
+/* Responsive design */
 @media (max-width: 600px) {
+  .countdownWrapper {
+    max-width: 100%;
+  }
+
+  .countdownTitle {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+  }
+
   .clockGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+
   .clockItem {
-    padding: 1rem 0.25rem;
+    padding: 1.5rem 0.75rem;
   }
+
   .value {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
   }
 }

@@ -10,16 +10,56 @@
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
+/* Binary rain animation container */
+.binaryRain {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.3;
+  overflow: hidden;
   pointer-events: none;
+  z-index: 1;
+}
+
+.binaryColumn {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Spacing between digits */
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--morado_claro); /* Using correct root variable */
+  text-shadow: 0 0 8px rgba(139, 95, 191, 0.4);
+  opacity: 0.7;
+  animation: binaryFall linear infinite;
+  will-change: transform;
+}
+
+/* Smooth infinite falling animation */
+@keyframes binaryFall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.binaryDigit {
+  display: block;
+  animation: fadeDigit 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes fadeDigit {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.8;
+  }
 }
 
 .container {
@@ -86,16 +126,56 @@
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.subtitle {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  color: var(--blanco);
+/* Wrapper for countdown and event info side by side */
+.eventDetailsWrapper {
   display: flex;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
-  opacity: 0.95;
+  margin: 2rem auto 2.5rem;
+  max-width: 1000px;
   flex-wrap: wrap;
+}
+
+/* Event info section - ultra compact design */
+.eventInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 240px;
+  max-width: 300px;
+}
+
+.infoBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all var(--transition-base);
+}
+
+.infoBox:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(251, 188, 48, 0.3);
+  transform: translateX(3px);
+}
+
+.infoIcon {
+  color: var(--dorado);
+  flex-shrink: 0;
+}
+
+.infoValue {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--blanco);
+  line-height: 1.4;
+  flex: 1;
 }
 
 .ctaGroup {

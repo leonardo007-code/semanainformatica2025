@@ -43,12 +43,12 @@
 }
 
 .aboutCard {
-  background: linear-gradient(135deg, var(--morado_claro) 30%, var(--blanco) 100%);
+  background: var(--blanco);
   padding: 2rem 1.5rem;
   border-radius: 1rem;
   border: 1px solid var(--morado_claro);
   transition: all 0.3s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .aboutIcon {

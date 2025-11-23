@@ -14,6 +14,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const binaryRainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const elements = [
@@ -28,10 +29,57 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
     if (badgeRef.current) {
       pulseAccent(badgeRef.current);
     }
+
+    // Binary rain animation - optimized with CSS animations
+    if (binaryRainRef.current) {
+      const container = binaryRainRef.current;
+      const numColumns = 25; // Reduced for better performance
+
+      // Create columns of binary code
+      for (let i = 0; i < numColumns; i++) {
+        const column = document.createElement("div");
+        column.className = styles.binaryColumn;
+        column.style.left = `${(i / numColumns) * 100}%`;
+
+        // Random animation duration for variety (30-45 seconds - very slow)
+        const duration = Math.random() * 15 + 30;
+        column.style.animationDuration = `${duration}s`;
+
+        // Staggered delays to ensure continuous coverage
+        const delay = (i / numColumns) * 15;
+        column.style.animationDelay = `-${delay}s`; // Negative delay starts mid-animation
+
+        // Reasonable column length (60-90 digits)
+        const numDigits = Math.floor(Math.random() * 31) + 60;
+
+        for (let j = 0; j < numDigits; j++) {
+          const digit = document.createElement("span");
+          digit.textContent = Math.random() > 0.5 ? "1" : "0";
+          digit.className = styles.binaryDigit;
+
+          // Random animation delay for each digit (0-2 seconds) for async blinking
+          digit.style.animationDelay = `${Math.random() * 2}s`;
+
+          column.appendChild(digit);
+        }
+
+        container.appendChild(column);
+      }
+    }
+
+    return () => {
+      // Cleanup: remove binary rain elements
+      if (binaryRainRef.current) {
+        binaryRainRef.current.innerHTML = "";
+      }
+    };
   }, []);
 
   return (
     <section className={styles.hero}>
+      {/* Binary rain animation container */}
+      <div ref={binaryRainRef} className={styles.binaryRain}></div>
+
       <div className={styles.container}>
         <div className={styles.logoSection}>
           <a
@@ -47,13 +95,13 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
           </a>
           <div ref={badgeRef} className={styles.badge}>
             <Sparkles size={16} />
-            <span>150 años</span>
+            <span>50 años</span>
           </div>
         </div>
 
         <div className={styles.content}>
           <h1 ref={titleRef} className={styles.title}>
-            DEV WEEK 22
+            DEV WEEK 2025
           </h1>
 
           {/* Mover infoCard aquí debajo del título */}
@@ -66,66 +114,42 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
             </p>
           </div>
 
-          <div
-            ref={subtitleRef}
-            className={styles.subtitle}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "2rem",
-              marginBottom: "1.5rem",
-            }}
-          >
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-            >
-              <Calendar size={20} style={{ color: "var(--dorado)" }} />
-              <span style={{ color: "var(--morado_claro)" }}>
-                1 al 5 de diciembre
-              </span>
-            </div>
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-            >
-              <span style={{ display: "flex", alignItems: "center" }}>
+          {/* Reloj y detalles del evento juntos */}
+          <div className={styles.eventDetailsWrapper}>
+            {/* Reloj de cuenta regresiva */}
+            <CountdownClock />
+
+            {/* Información del evento */}
+            <div ref={subtitleRef} className={styles.eventInfo}>
+              <div className={styles.infoBox}>
+                <Calendar size={22} className={styles.infoIcon} />
+                <span className={styles.infoValue}>1 al 5 de diciembre</span>
+              </div>
+              <div className={styles.infoBox}>
                 <svg
-                  width="20"
-                  height="20"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="var(--dorado)"
+                  stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={styles.infoIcon}
                 >
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
-              </span>
-              <span style={{ color: "var(--morado_claro)" }}>
-                11:00 a.m. – 1:00 p.m.
-              </span>
-            </div>
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
-            >
-              <MapPin size={20} style={{ color: "var(--dorado)" }} />
-              <span style={{ color: "var(--morado_claro)" }}>Ubicación</span>
-              <span
-                style={{
-                  fontWeight: 700,
-                  marginLeft: "0.25rem",
-                  color: "var(--dorado)",
-                }}
-              >
-                ISTTA
-              </span>
+                <span className={styles.infoValue}>11:00 a.m. – 1:00 p.m.</span>
+              </div>
+              <div className={styles.infoBox}>
+                <MapPin size={22} className={styles.infoIcon} />
+                <span className={styles.infoValue}>
+                  Auditorio del IESP Túpac Amaru
+                </span>
+              </div>
             </div>
           </div>
-
-          {/* Reloj de cuenta regresiva */}
-          <CountdownClock />
 
           <div ref={ctaRef} className={styles.ctaGroup}>
             <button
