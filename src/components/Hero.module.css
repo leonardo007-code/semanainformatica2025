@@ -117,13 +117,35 @@
   margin-bottom: 3rem;
 }
 
-.title {
-  font-size: clamp(3rem, 10vw, 6rem);
-  font-weight: 800;
-  color: var(--blanco);
+.logoContainer {
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 1s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.heroLogo {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.heroLogo:hover {
+  transform: scale(1.02);
 }
 
 /* Wrapper for countdown and event info side by side */
@@ -245,6 +267,10 @@
 @media (max-width: 768px) {
   .hero {
     padding: 1.5rem 1rem;
+  }
+
+  .heroLogo {
+    max-width: 280px;
   }
 
   .logoSection {

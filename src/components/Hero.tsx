@@ -100,9 +100,13 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
         </div>
 
         <div className={styles.content}>
-          <h1 ref={titleRef} className={styles.title}>
-            DEV WEEK 2025
-          </h1>
+          <div className={styles.logoContainer}>
+            <img
+              src="/logo-DEV-WEEK-blanco.png"
+              alt="DEV WEEK 2025"
+              className={styles.heroLogo}
+            />
+          </div>
 
           {/* Mover infoCard aquí debajo del título */}
           <div className={styles.infoCard}>
