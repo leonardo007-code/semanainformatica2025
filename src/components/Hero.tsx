@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Calendar, Sparkles, MapPin } from "lucide-react";
-import { enterStagger, pulseAccent } from "../utils/animations";
+import { Calendar, MapPin } from "lucide-react";
+import { enterStagger } from "../utils/animations";
 import CountdownClock from "./CountdownClock";
 import styles from "./Hero.module.css";
 
@@ -12,23 +12,13 @@ interface HeroProps {
 const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const badgeRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const binaryRainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const elements = [
-      badgeRef.current,
-      titleRef.current,
-      subtitleRef.current,
-      ctaRef.current,
-    ];
+    const elements = [titleRef.current, subtitleRef.current, ctaRef.current];
 
     enterStagger(elements.filter(Boolean), 100);
-
-    if (badgeRef.current) {
-      pulseAccent(badgeRef.current);
-    }
 
     // Binary rain animation - optimized with CSS animations
     if (binaryRainRef.current) {
@@ -81,41 +71,18 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
       <div ref={binaryRainRef} className={styles.binaryRain}></div>
 
       <div className={styles.container}>
-        <div className={styles.logoSection}>
-          <a
-            href="https://www.istta.edu.pe/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.logoLink}
-            aria-label="Instituto de Educación Superior Túpac Amaru"
-          >
-            <div className={styles.logoPlaceholder}>
-              <span>ISTTA</span>
-            </div>
-          </a>
-          <div ref={badgeRef} className={styles.badge}>
-            <Sparkles size={16} />
-            <span>50 años</span>
-          </div>
-        </div>
-
         <div className={styles.content}>
           <div className={styles.logoContainer}>
+            <img
+              src="/logo-50-años.png"
+              alt="50 años ISTTA"
+              className={styles.logo50}
+            />
             <img
               src="/logo-DEV-WEEK-blanco.png"
               alt="DEV WEEK 2025"
               className={styles.heroLogo}
             />
-          </div>
-
-          {/* Mover infoCard aquí debajo del título */}
-          <div className={styles.infoCard}>
-            <p className={styles.institution}>
-              Instituto de Educación Superior Túpac Amaru
-            </p>
-            <p className={styles.carrera}>
-              Desarrollo de Sistemas de Información
-            </p>
           </div>
 
           {/* Reloj y detalles del evento juntos */}

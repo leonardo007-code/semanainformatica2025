@@ -123,6 +123,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 @keyframes fadeInScale {
@@ -136,8 +137,20 @@
   }
 }
 
+.logo50 {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.logo50:hover {
+  transform: scale(1.05);
+}
+
 .heroLogo {
-  max-width: 400px;
+  max-width: 250px;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.4));
@@ -145,7 +158,7 @@
 }
 
 .heroLogo:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 /* Wrapper for countdown and event info side by side */
@@ -269,8 +282,17 @@
     padding: 1.5rem 1rem;
   }
 
+  .logoContainer {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .logo50 {
+    max-width: 180px;
+  }
+
   .heroLogo {
-    max-width: 280px;
+    max-width: 150px;
   }
 
   .logoSection {
