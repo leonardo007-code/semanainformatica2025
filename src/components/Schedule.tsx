@@ -134,7 +134,11 @@ export default function Schedule() {
                 <X className={styles.closeIcon} />
               </button>
             </div>
-            <div className={styles.modalBody}>
+            <div
+              className={`${styles.modalBody} ${
+                selectedDay.destacado ? styles.featuredActivities : ""
+              }`}
+            >
               <p className={styles.modalDesc}>{selectedDay.descripcion}</p>
               <h4 className={styles.modalSubtitle}>Actividades</h4>
               <ul className={styles.modalList}>

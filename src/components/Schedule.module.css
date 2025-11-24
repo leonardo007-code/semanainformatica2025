@@ -468,6 +468,22 @@
   padding: 2px 8px;
   font-weight: 500;
   margin-right: 0.5rem;
+}
+
+/* Estilos dorados para actividades del día destacado */
+.featuredActivities .modalListNum {
+  background: var(--dorado);
+  color: var(--morado);
+}
+
+.featuredActivities .actividadBox {
+  background: rgba(255, 215, 0, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.featuredActivities .actividadHora {
+  background: var(--dorado);
+  color: var(--morado);
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Building2 } from "lucide-react";
 import { fadeInUp } from "../utils/animations";
 import styles from "./Sponsors.module.css";
 
@@ -48,19 +49,11 @@ const Sponsors = () => {
           </div>
         </div>
 
-        <div className={styles.careerInfo}>
-          <h3 className={styles.careerTitle}>
-            Desarrollo de Sistemas de Información
-          </h3>
-          <p className={styles.careerDescription}>
-            Anteriormente "Computación e Informática" (1983), renombrada hace 6
-            años para reflejar el enfoque moderno en desarrollo de software y
-            sistemas empresariales.
-          </p>
-        </div>
-
         <div className={styles.organizedSection}>
-          <h3 className={styles.organizedTitle}>Organizado por</h3>
+          <div className={styles.titleWrapper}>
+            <h3 className={styles.organizedTitle}>Organizado por</h3>
+            <Building2 size={28} className={styles.titleIcon} />
+          </div>
           <div className={styles.divider}></div>
           <div className={styles.organizedLogos}>
             <a
@@ -88,6 +81,17 @@ const Sponsors = () => {
               />
             </a>
           </div>
+        </div>
+
+        <div className={styles.careerInfo}>
+          <h3 className={styles.careerTitle}>
+            Desarrollo de Sistemas de Información
+          </h3>
+          <p className={styles.careerDescription}>
+            Anteriormente "Computación e Informática" (1983), renombrada hace 6
+            años para reflejar el enfoque moderno en desarrollo de software y
+            sistemas empresariales.
+          </p>
         </div>
       </div>
     </section>

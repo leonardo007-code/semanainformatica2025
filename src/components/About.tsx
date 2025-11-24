@@ -69,8 +69,8 @@ export default function About() {
           </div>
           <div className={styles.aboutDivider}></div>
           <p className={styles.aboutDescription}>
-            La Semana Informática más importante del ISTTA, organizada por
-            estudiantes del VI ciclo de
+            DEV WEEK es la Semana Informática 2025, un evento anual, organizada
+            por estudiantes del VI ciclo de
             <span style={{ fontWeight: 600, color: "var(--morado)" }}>
               {" "}
               Desarrollo de Sistemas de Información

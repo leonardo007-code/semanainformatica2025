@@ -1,65 +1,132 @@
-import { useState, useEffect, useRef } from 'react';
-import { Tv, X, Clock, Users } from 'lucide-react';
-import { fadeInUp, scaleIn } from '../utils/animations';
-import styles from './LiveStreams.module.css';
+import { useState, useEffect, useRef } from "react";
+import { Tv, X, Clock, Calendar } from "lucide-react";
+import { fadeInUp, scaleIn } from "../utils/animations";
+import { Stream } from "../types/stream";
+import {
+  getStreamWithStatus,
+  getEmbedUrl,
+  getTodayStream,
+  formatCountdown,
+  getStatusLabel,
+} from "../utils/streamHelpers";
+import styles from "./LiveStreams.module.css";
 
-interface Stream {
-  id: number;
-  title: string;
-  day: string;
-  time: string;
-  platform: 'YouTube' | 'Twitch';
-  url: string;
-  viewers?: number;
-  isLive?: boolean;
-}
-
+// Datos de transmisiones alineados con el cronograma
 const STREAMS: Stream[] = [
   {
     id: 1,
-    title: 'Inauguración DEV WEEK 2025',
-    day: 'Lunes',
-    time: '9:00 AM',
-    platform: 'YouTube',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    viewers: 245,
-    isLive: false
+    title: "Código del Futuro - Inauguración",
+    day: "Lunes 01",
+    date: "2025-12-01", // Cambiado para testing
+    startTime: "11:30",
+    endTime: "13:00",
+    platform: "youtube",
+    channelId: "", // Agregar cuando tengas el canal
+    videoId: "dQw4w9WgXcQ", // Video de ejemplo para testing
+    description: "Inicio oficial de la DEV WEEK 2025",
   },
   {
     id: 2,
-    title: 'Talleres de Desarrollo Web',
-    day: 'Martes',
-    time: '10:00 AM',
-    platform: 'Twitch',
-    url: 'https://player.twitch.tv/?channel=placeholder',
-    isLive: false
+    title: "Mentes Sintéticas - IA en Acción",
+    day: "Martes 02",
+    date: "2025-12-02",
+    startTime: "11:30",
+    endTime: "13:00",
+    platform: "youtube",
+    channelId: "",
+    videoId: "jNQXAC9IVRw", // Video de ejemplo
+    description: "Explorando la inteligencia artificial",
   },
   {
     id: 3,
-    title: 'Bootcamp Intensivo - En Vivo',
-    day: 'Miércoles',
-    time: '9:00 AM - 1:00 PM',
-    platform: 'YouTube',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    viewers: 532,
-    isLive: true
+    title: "Guardianes Cyber - Bootcamp",
+    day: "Miércoles 03",
+    date: "2025-12-03",
+    startTime: "11:30",
+    endTime: "13:00",
+    platform: "youtube",
+    channelId: "",
+    videoId: "M7lc1UVf-VE", // Video de ejemplo
+    description: "Bootcamp intensivo de ciberseguridad",
   },
   {
     id: 4,
-    title: 'Conferencias Tech Leaders',
-    day: 'Jueves',
-    time: '2:00 PM',
-    platform: 'YouTube',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    isLive: false
-  }
+    title: "Líderes del Cambio - Gestión TI",
+    day: "Jueves 04",
+    date: "2025-12-04",
+    startTime: "11:30",
+    endTime: "13:00",
+    platform: "youtube",
+    channelId: "",
+    videoId: "",
+    description: "Liderazgo en tecnología",
+  },
+  {
+    id: 5,
+    title: "Cierre Triunfal - Clausura",
+    day: "Viernes 05",
+    date: "2025-12-05",
+    startTime: "11:30",
+    endTime: "13:00",
+    platform: "youtube",
+    channelId: "",
+    videoId: "",
+    description: "Cierre y entrega de certificados",
+  },
 ];
+
+// Componente CountdownTimer
+const CountdownTimer = ({ timeUntilStart }: { timeUntilStart: number }) => {
+  const [countdown, setCountdown] = useState(formatCountdown(timeUntilStart));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const remaining = timeUntilStart - (Date.now() - now);
+      if (remaining > 0) {
+        setCountdown(formatCountdown(remaining));
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timeUntilStart]);
+
+  return (
+    <div className={styles.countdown}>
+      <div className={styles.countdownLabel}>Comienza en:</div>
+      <div className={styles.countdownTime}>
+        {countdown.hours > 0 && (
+          <div className={styles.timeUnit}>
+            <span className={styles.timeValue}>
+              {String(countdown.hours).padStart(2, "0")}
+            </span>
+            <span className={styles.timeLabel}>hrs</span>
+          </div>
+        )}
+        <div className={styles.timeUnit}>
+          <span className={styles.timeValue}>
+            {String(countdown.minutes).padStart(2, "0")}
+          </span>
+          <span className={styles.timeLabel}>min</span>
+        </div>
+        <div className={styles.timeUnit}>
+          <span className={styles.timeValue}>
+            {String(countdown.seconds).padStart(2, "0")}
+          </span>
+          <span className={styles.timeLabel}>seg</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const LiveStreams = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedStream, setSelectedStream] = useState<Stream | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  const todayStream = getTodayStream(STREAMS);
 
   useEffect(() => {
     if (sectionRef.current) {
@@ -76,24 +143,24 @@ const LiveStreams = () => {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isModalOpen) {
+      if (e.key === "Escape" && isModalOpen) {
         closeModal();
       }
     };
 
     if (isModalOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
 
-      const firstFocusable = modalRef.current?.querySelector('button');
+      const firstFocusable = modalRef.current?.querySelector("button");
       (firstFocusable as HTMLElement)?.focus();
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "";
     };
   }, [isModalOpen]);
 
@@ -107,117 +174,230 @@ const LiveStreams = () => {
     setTimeout(() => setSelectedStream(null), 300);
   };
 
+  // Filtrar streams: ocultar los que ya pasaron y no tienen video
+  const visibleStreams = STREAMS.map(getStreamWithStatus).filter((stream) => {
+    // Si ya pasó la fecha de fin y no tiene videoId, ocultarlo
+    const now = new Date();
+    const streamEndDate = new Date(`${stream.date}T${stream.endTime}:00`);
+
+    if (now > streamEndDate && !stream.videoId) {
+      return false; // Ocultar card
+    }
+
+    return true; // Mostrar card
+  });
+
   return (
-    <section ref={sectionRef} className={styles.section} id="transmisiones">
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <Tv className={styles.icon} size={32} />
-          <h2 className={styles.title}>Transmisiones en Vivo</h2>
-          <p className={styles.description}>
-            Sigue todos los eventos en tiempo real desde donde estés
-          </p>
-        </div>
+    <>
+      <section ref={sectionRef} className={styles.section} id="transmisiones">
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <div className={styles.titleWrapper}>
+              <h2 className={styles.title}>Transmisiones en Vivo</h2>
+              <Tv size={28} className={styles.titleIcon} />
+            </div>
+            <div className={styles.divider}></div>
+            <p className={styles.description}>
+              Sigue todos los eventos en tiempo real desde donde estés
+            </p>
+          </div>
 
-        <div className={styles.grid}>
-          {STREAMS.map(stream => (
-            <div key={stream.id} className={styles.streamCard}>
-              {stream.isLive && (
-                <div className={styles.liveBadge}>
-                  <span className={styles.liveDot}></span>
-                  EN VIVO
-                </div>
-              )}
-
-              <div className={styles.cardHeader}>
-                <div className={styles.platformBadge}>
-                  {stream.platform}
-                </div>
+          {/* Stream del día destacado */}
+          {todayStream && (
+            <div className={styles.todayStream}>
+              <div className={styles.todayHeader}>
+                <Calendar size={20} />
+                <span>Stream de Hoy</span>
               </div>
-
-              <div className={styles.cardContent}>
-                <h3 className={styles.streamTitle}>{stream.title}</h3>
-
-                <div className={styles.streamInfo}>
-                  <div className={styles.infoItem}>
-                    <Clock size={16} />
-                    <span>{stream.day} - {stream.time}</span>
+              <div
+                className={`${styles.featuredCard} ${
+                  styles[todayStream.status]
+                }`}
+              >
+                {todayStream.status === "live" && (
+                  <div className={styles.liveBadge}>
+                    <span className={styles.liveDot}></span>
+                    EN VIVO AHORA
                   </div>
-                  {stream.viewers !== undefined && (
-                    <div className={styles.infoItem}>
-                      <Users size={16} />
-                      <span>{stream.viewers} espectadores</span>
-                    </div>
-                  )}
-                </div>
+                )}
 
-                <button
-                  onClick={() => openModal(stream)}
-                  className={styles.watchBtn}
-                  aria-label={`Ver transmisión: ${stream.title}`}
-                >
-                  Ver Transmisión
-                </button>
+                <div className={styles.featuredContent}>
+                  <h3 className={styles.featuredTitle}>{todayStream.title}</h3>
+                  <p className={styles.featuredDesc}>
+                    {todayStream.description}
+                  </p>
+
+                  <div className={styles.featuredInfo}>
+                    <div className={styles.infoItem}>
+                      <Clock size={18} style={{ color: "var(--dorado)" }} />
+                      <span>
+                        {todayStream.startTime} - {todayStream.endTime} hrs.
+                      </span>
+                    </div>
+                    <div className={styles.platformBadge}>
+                      {todayStream.platform}
+                    </div>
+                  </div>
+
+                  {todayStream.status === "upcoming" &&
+                    todayStream.timeUntilStart && (
+                      <CountdownTimer
+                        timeUntilStart={todayStream.timeUntilStart}
+                      />
+                    )}
+
+                  <button
+                    onClick={() => openModal(todayStream)}
+                    className={`${styles.watchBtn} ${styles.featured}`}
+                    disabled={todayStream.status === "scheduled"}
+                  >
+                    {todayStream.status === "live" && "Ver Live"}
+                    {todayStream.status === "upcoming" && "Ver Video"}
+                    {todayStream.status === "recorded" && "Ver Video"}
+                    {todayStream.status === "scheduled" && "Próximamente"}
+                  </button>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+          )}
 
-        <div className={styles.chatInfo}>
-          <p>
-            Participa en el chat en vivo durante las transmisiones y conecta con otros asistentes
-          </p>
-        </div>
-      </div>
+          {/* Grid de streams */}
+          <div className={styles.grid}>
+            {visibleStreams.map((stream) => (
+              <div
+                key={stream.id}
+                className={`${styles.streamCard} ${styles[stream.status]}`}
+              >
+                <div className={styles.statusBadge}>
+                  {getStatusLabel(stream.status)}
+                </div>
 
-      {isModalOpen && (
-        <div
-          className={styles.modalOverlay}
-          onClick={closeModal}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
-          <div
-            ref={modalRef}
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
+                <div className={styles.cardHeader}>
+                  <div className={styles.platformBadge}>{stream.platform}</div>
+                </div>
+
+                <div className={styles.cardContent}>
+                  <h3 className={styles.streamTitle}>{stream.title}</h3>
+
+                  <div className={styles.streamInfo}>
+                    <div className={styles.infoItem}>
+                      <Clock size={16} style={{ color: "var(--dorado)" }} />
+                      <span>
+                        {stream.day} - {stream.startTime} hrs.
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => openModal(stream)}
+                    className={styles.watchBtn}
+                  >
+                    {stream.status === "live" && "Ver Live"}
+                    {stream.status === "recorded" && "Ver Video"}
+                    {stream.status === "upcoming" && "Próximamente"}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.chatInfo}>
+            <p>
+              Participa en el chat en vivo durante las transmisiones y conecta
+              con otros asistentes
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Modal fuera del section para centrarse en toda la pantalla */}
+      {isModalOpen &&
+        selectedStream &&
+        (() => {
+          const streamWithStatus = getStreamWithStatus(selectedStream);
+          const embedUrl = getEmbedUrl(selectedStream);
+
+          return (
+            <div
+              className={styles.modalOverlay}
               onClick={closeModal}
-              className={styles.closeBtn}
-              aria-label="Cerrar modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-title"
             >
-              <X size={24} />
-            </button>
+              <div
+                ref={modalRef}
+                className={styles.modalContent}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={closeModal}
+                  className={styles.closeBtn}
+                  aria-label="Cerrar modal"
+                >
+                  <X size={24} />
+                </button>
 
-            {selectedStream && (
-              <>
                 <h3 id="modal-title" className={styles.modalTitle}>
                   {selectedStream.title}
                 </h3>
 
-                <div className={styles.videoContainer}>
-                  <iframe
-                    src={selectedStream.url}
-                    title={selectedStream.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className={styles.iframe}
-                  ></iframe>
-                </div>
+                {/* Mostrar video solo si es LIVE o RECORDED */}
+                {embedUrl &&
+                (streamWithStatus.status === "live" ||
+                  streamWithStatus.status === "recorded") ? (
+                  <div className={styles.videoContainer}>
+                    <iframe
+                      src={embedUrl}
+                      title={selectedStream.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className={styles.iframe}
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div className={styles.noStream}>
+                    <Tv size={48} />
+                    <p>
+                      {streamWithStatus.status === "live" && !embedUrl
+                        ? "La transmisión comenzará pronto. Agrega el enlace para verla en vivo."
+                        : streamWithStatus.status === "recorded" && !embedUrl
+                        ? "Este evento ya finalizó pero aún no hay grabación disponible."
+                        : streamWithStatus.status === "upcoming" ||
+                          streamWithStatus.status === "scheduled"
+                        ? `Este evento comenzará el ${selectedStream.day} a las ${selectedStream.startTime} hrs. ¡Vuelve en ese momento!`
+                        : "Información no disponible"}
+                    </p>
+                  </div>
+                )}
 
                 <div className={styles.modalInfo}>
-                  <span>{selectedStream.day} - {selectedStream.time}</span>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <Clock size={16} style={{ color: "var(--dorado)" }} />
+                    <span>
+                      {selectedStream.day} - {selectedStream.startTime} -{" "}
+                      {selectedStream.endTime} hrs.
+                    </span>
+                  </div>
+                  <span className={styles.separator}>•</span>
+                  <span className={styles.modalStatusBadge}>
+                    {getStatusLabel(streamWithStatus.status)}
+                  </span>
                   <span className={styles.separator}>•</span>
                   <span>{selectedStream.platform}</span>
                 </div>
-              </>
-            )}
-          </div>
-        </div>
-      )}
-    </section>
+              </div>
+            </div>
+          );
+        })()}
+    </>
   );
 };
 
