@@ -26,7 +26,7 @@ const features = [
     icon: <Rocket size={48} className={styles.aboutIcon} />,
     title: "Impulso Profesional",
     description:
-      "Oportunidades laborales, mentoría y consejos para acelerar tu carrera tech",
+      "Oportunidades laborales, mentoría y consejos para acelerar tu carrera tecnológica",
   },
 ];
 
