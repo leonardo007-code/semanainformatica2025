@@ -124,6 +124,177 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  position: relative;
+  overflow: visible;
+}
+
+/* Elementos para explosiones de chispas */
+.logoContainer::before,
+.logoContainer::after,
+.sparkle1,
+.sparkle2,
+.sparkle3,
+.sparkle4 {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Activar todas las explosiones en hover */
+.logoContainer:hover::before {
+  opacity: 1;
+  animation: sparkleExplosion1 2s ease-out infinite;
+}
+
+.logoContainer:hover::after {
+  opacity: 1;
+  animation: sparkleExplosion2 2s ease-out infinite 0.4s;
+}
+
+.logoContainer:hover .sparkle1 {
+  opacity: 1;
+  animation: sparkleExplosion3 2s ease-out infinite 0.8s;
+}
+
+.logoContainer:hover .sparkle2 {
+  opacity: 1;
+  animation: sparkleExplosion4 2s ease-out infinite 1.2s;
+}
+
+.logoContainer:hover .sparkle3 {
+  opacity: 1;
+  animation: sparkleExplosion5 2s ease-out infinite 0.3s;
+}
+
+.logoContainer:hover .sparkle4 {
+  opacity: 1;
+  animation: sparkleExplosion6 2s ease-out infinite 0.7s;
+}
+
+/* Explosión 1 - Centro superior */
+@keyframes sparkleExplosion1 {
+  0% {
+    top: 20%;
+    left: 50%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 20%;
+    left: 50%;
+    box-shadow: -70px -70px 1px 0px transparent, 0px -90px 1px 0px transparent,
+      70px -70px 1px 0px transparent, 90px 0px 1px 0px transparent,
+      70px 70px 1px 0px transparent, 0px 90px 1px 0px transparent,
+      -70px 70px 1px 0px transparent, -90px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 2 - Esquina superior derecha */
+@keyframes sparkleExplosion2 {
+  0% {
+    top: 25%;
+    right: 20%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 25%;
+    right: 20%;
+    box-shadow: -65px -65px 1px 0px transparent, 0px -85px 1px 0px transparent,
+      65px -65px 1px 0px transparent, 85px 0px 1px 0px transparent,
+      65px 65px 1px 0px transparent, 0px 85px 1px 0px transparent,
+      -65px 65px 1px 0px transparent, -85px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 3 - Centro izquierda */
+@keyframes sparkleExplosion3 {
+  0% {
+    top: 45%;
+    left: 15%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 45%;
+    left: 15%;
+    box-shadow: -75px -75px 1px 0px transparent, 0px -95px 1px 0px transparent,
+      75px -75px 1px 0px transparent, 95px 0px 1px 0px transparent,
+      75px 75px 1px 0px transparent, 0px 95px 1px 0px transparent,
+      -75px 75px 1px 0px transparent, -95px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 4 - Centro derecha */
+@keyframes sparkleExplosion4 {
+  0% {
+    top: 40%;
+    right: 15%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    top: 40%;
+    right: 15%;
+    box-shadow: -80px -80px 1px 0px transparent, 0px -100px 1px 0px transparent,
+      80px -80px 1px 0px transparent, 100px 0px 1px 0px transparent,
+      80px 80px 1px 0px transparent, 0px 100px 1px 0px transparent,
+      -80px 80px 1px 0px transparent, -100px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 5 - Esquina inferior izquierda */
+@keyframes sparkleExplosion5 {
+  0% {
+    bottom: 25%;
+    left: 25%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    bottom: 25%;
+    left: 25%;
+    box-shadow: -70px -70px 1px 0px transparent, 0px -90px 1px 0px transparent,
+      70px -70px 1px 0px transparent, 90px 0px 1px 0px transparent,
+      70px 70px 1px 0px transparent, 0px 90px 1px 0px transparent,
+      -70px 70px 1px 0px transparent, -90px 0px 1px 0px transparent;
+  }
+}
+
+/* Explosión 6 - Centro inferior */
+@keyframes sparkleExplosion6 {
+  0% {
+    bottom: 20%;
+    left: 50%;
+    box-shadow: 0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado),
+      0 0 5px 3px var(--dorado), 0 0 5px 3px var(--dorado);
+  }
+  100% {
+    bottom: 20%;
+    left: 50%;
+    box-shadow: -75px -75px 1px 0px transparent, 0px -95px 1px 0px transparent,
+      75px -75px 1px 0px transparent, 95px 0px 1px 0px transparent,
+      75px 75px 1px 0px transparent, 0px 95px 1px 0px transparent,
+      -75px 75px 1px 0px transparent, -95px 0px 1px 0px transparent;
+  }
 }
 
 @keyframes fadeInScale {

@@ -73,6 +73,10 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.logoContainer}>
+            <span className={styles.sparkle1}></span>
+            <span className={styles.sparkle2}></span>
+            <span className={styles.sparkle3}></span>
+            <span className={styles.sparkle4}></span>
             <img
               src="/logo-50-años.png"
               alt="50 años ISTTA"
@@ -94,7 +98,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
             <div ref={subtitleRef} className={styles.eventInfo}>
               <div className={styles.infoBox}>
                 <Calendar size={22} className={styles.infoIcon} />
-                <span className={styles.infoValue}>1 al 5 de diciembre</span>
+                <span className={styles.infoValue}>09 al 12 de diciembre</span>
               </div>
               <div className={styles.infoBox}>
                 <svg
