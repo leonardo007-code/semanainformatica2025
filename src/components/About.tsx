@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Code2, Users, Lightbulb, Rocket, Laptop } from "lucide-react";
 import anime from "animejs";
 import styles from "./About.module.css";
@@ -32,12 +32,13 @@ const features = [
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !hasAnimated) {
             anime({
               targets: `.${styles.aboutCard}`,
               translateY: [50, 0],
@@ -46,6 +47,8 @@ export default function About() {
               delay: anime.stagger(150),
               easing: "easeOutExpo",
             });
+            setHasAnimated(true);
+            observer.disconnect(); // Performance: Disconnect after animating
           }
         });
       },
@@ -57,7 +60,7 @@ export default function About() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [hasAnimated]);
 
   return (
     <section ref={sectionRef} id="about" className={styles.aboutSection}>

@@ -23,7 +23,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
     // Binary rain animation - optimized with CSS animations
     if (binaryRainRef.current) {
       const container = binaryRainRef.current;
-      const numColumns = 25; // Reduced for better performance
+      const numColumns = 15; // Optimized: Reduced from 25 for better performance
 
       // Create columns of binary code
       for (let i = 0; i < numColumns; i++) {
@@ -39,8 +39,8 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
         const delay = (i / numColumns) * 15;
         column.style.animationDelay = `-${delay}s`; // Negative delay starts mid-animation
 
-        // Reasonable column length (60-90 digits)
-        const numDigits = Math.floor(Math.random() * 31) + 60;
+        // Optimized: Reduced column length (40-50 digits instead of 60-90)
+        const numDigits = Math.floor(Math.random() * 11) + 40;
 
         for (let j = 0; j < numDigits; j++) {
           const digit = document.createElement("span");

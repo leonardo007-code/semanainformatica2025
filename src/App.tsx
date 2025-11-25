@@ -1,11 +1,11 @@
 import { useRef, lazy, Suspense } from "react";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Schedule from "./components/Schedule";
-import Bootcamp from "./components/Bootcamp";
 import Footer from "./components/Footer";
 
-// Lazy load heavy components for better performance
+// Lazy load all non-critical components for better performance
+const About = lazy(() => import("./components/About"));
+const Schedule = lazy(() => import("./components/Schedule"));
+const Bootcamp = lazy(() => import("./components/Bootcamp"));
 const Speakers = lazy(() => import("./components/Speakers"));
 const LiveStreams = lazy(() => import("./components/LiveStreams"));
 const RegistrationForm = lazy(() => import("./components/RegistrationForm"));
@@ -29,30 +29,33 @@ function App() {
         onScrollToRegister={scrollToRegister}
         onScrollToStreams={scrollToStreams}
       />
-      <About />
-      <Schedule />
+
+      {/* Suspense boundary for each section to load independently */}
+      <Suspense fallback={<div style={{ minHeight: "200px" }} />}>
+        <About />
+      </Suspense>
+
+      <Suspense fallback={<div style={{ minHeight: "400px" }} />}>
+        <Schedule />
+      </Suspense>
+
       {/*<Bootcamp onRegister={scrollToRegister} />*/}
 
-      <Suspense
-        fallback={
-          <div
-            style={{
-              minHeight: "400px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--morado)",
-            }}
-          >
-            <div>Cargando...</div>
-          </div>
-        }
-      >
+      <Suspense fallback={<div style={{ minHeight: "400px" }} />}>
         <Speakers />
+      </Suspense>
+
+      <Suspense fallback={<div style={{ minHeight: "400px" }} />}>
         <LiveStreams />
-        {/*<div ref={registerRef}>
+      </Suspense>
+
+      {/*<div ref={registerRef}>
+        <Suspense fallback={<div style={{ minHeight: "400px" }} />}>
           <RegistrationForm />
-        </div>*/}
+        </Suspense>
+      </div>*/}
+
+      <Suspense fallback={<div style={{ minHeight: "300px" }} />}>
         <Sponsors />
       </Suspense>
 
