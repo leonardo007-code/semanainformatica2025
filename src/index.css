@@ -92,3 +92,23 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Accessibility: Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--morado);
+  color: var(--blanco);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--dorado);
+  outline-offset: 2px;
+}

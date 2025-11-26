@@ -1,0 +1,31 @@
+{
+  "name": "DEV WEEK 2025 - ISTTA",
+  "short_name": "DEV WEEK",
+  "description": "Evento tecnológico estudiantil anual del Programa de Estudios de Desarrollo de Sistemas de Información del Instituto de Educación Superior Túpac Amaru",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#61398C",
+  "theme_color": "#61398C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "technology", "events"],
+  "lang": "es-PE",
+  "dir": "ltr"
+}
