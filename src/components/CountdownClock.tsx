@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import styles from "./CountdownClock.module.css";
 
-const TARGET_DATE = new Date("2025-12-09T11:00:00").getTime();
+const TARGET_DATE = new Date("2025-12-10T11:00:00").getTime();
 const LABELS = [
   { label: "Días", key: "dias" },
   { label: "Horas", key: "horas" },
