@@ -98,7 +98,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
             <div ref={subtitleRef} className={styles.eventInfo}>
               <div className={styles.infoBox}>
                 <Calendar size={22} className={styles.infoIcon} />
-                <span className={styles.infoValue}>09 al 12 de diciembre</span>
+                <span className={styles.infoValue}>10 al 12 de diciembre</span>
               </div>
               <div className={styles.infoBox}>
                 <svg
