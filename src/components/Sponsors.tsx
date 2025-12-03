@@ -24,7 +24,7 @@ const Sponsors = () => {
               <span className={styles.sparkle4}></span>
               <img
                 src="/Logo-50-años-instituto-Tupac-Amaru.png"
-                alt="Logo 50 años Instituto Túpac Amaru"
+                alt="Instituto de Educación Superior Público Túpac Amaru"
                 className={styles.logo}
               />
               <p className={styles.anniversarySubtext}>

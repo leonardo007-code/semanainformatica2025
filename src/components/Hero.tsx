@@ -67,6 +67,11 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
 
   return (
     <section className={styles.hero}>
+      {/* SEO: H1 semántico oculto visualmente pero accesible */}
+      <h1 className="sr-only">
+        DEV WEEK 2025 - Semana del Desarrollo del IESP Túpac Amaru Cusco
+      </h1>
+
       {/* Binary rain animation container */}
       <div ref={binaryRainRef} className={styles.binaryRain}></div>
 
@@ -79,12 +84,12 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
             <span className={styles.sparkle4}></span>
             <img
               src="/logo-50-años.png"
-              alt="50 años ISTTA"
+              alt="Logo 6 años del Programa de Estudios de Desarrollo de Sistemas de Información"
               className={styles.logo50}
             />
             <img
               src="/logo-DEV-WEEK-blanco.png"
-              alt="DEV WEEK 2025"
+              alt="DEV WEEK 2025 - Semana del Desarrollo"
               className={styles.heroLogo}
             />
           </div>
@@ -120,7 +125,7 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
               <div className={styles.infoBox}>
                 <MapPin size={22} className={styles.infoIcon} />
                 <span className={styles.infoValue}>
-                  Auditorio del IESP Túpac Amaru
+                  Auditórium del IESP Túpac Amaru
                 </span>
               </div>
             </div>

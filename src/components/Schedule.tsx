@@ -56,7 +56,7 @@ export default function Schedule() {
           </div>
           <div className={styles.divider}></div>
           <p className={styles.description}>
-            Cinco días intensivos de aprendizaje e innovación
+            Tres días intensivos de aprendizaje e innovación
           </p>
         </div>
         <div className={styles.grid}>
@@ -64,20 +64,9 @@ export default function Schedule() {
             <div
               key={dia.id}
               onClick={() => setSelectedDay(dia)}
-              className={`${styles.scheduleCard} ${
-                dia.destacado ? styles.featured : ""
-              }`}
+              className={styles.scheduleCard}
             >
-              {dia.destacado && (
-                <div className={styles.ribbon}>
-                  <span>DESTACADO</span>
-                </div>
-              )}
-              <div
-                className={dia.destacado ? styles.dayFeatured : styles.dayName}
-              >
-                {dia.nombre.toUpperCase()}
-              </div>
+              <div className={styles.dayName}>{dia.nombre.toUpperCase()}</div>
               <h3 className={styles.cardTitle}>{dia.tema}</h3>
               <div className={styles.cardInfo}>
                 <Calendar className={styles.cardIcon} />

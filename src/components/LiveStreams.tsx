@@ -15,63 +15,42 @@ import styles from "./LiveStreams.module.css";
 const STREAMS: Stream[] = [
   {
     id: 1,
-    title: "Código del Futuro - Inauguración",
-    day: "Lunes 01",
-    date: "2025-12-01", // Cambiado para testing
-    startTime: "11:30",
+    title: "Inauguración y Gestión de TI",
+    day: "Miércoles 10",
+    date: "2025-12-10",
+    startTime: "11:00",
     endTime: "13:00",
-    platform: "youtube",
+    platform: "facebook",
     channelId: "", // Agregar cuando tengas el canal
-    videoId: "dQw4w9WgXcQ", // Video de ejemplo para testing
-    description: "Inicio oficial de la DEV WEEK 2025",
+    videoId: "", // Video de ejemplo para testing
+    description:
+      "Inicio oficial de la DEV WEEK 2025 con presentación del 4º semestre y ponencia sobre Gestión de TI por Tec. Rodrigo Salazar",
   },
   {
     id: 2,
-    title: "Mentes Sintéticas - IA en Acción",
-    day: "Martes 02",
-    date: "2025-12-02",
-    startTime: "11:30",
+    title: "Bootcamp - Ciberseguridad (Día 1)",
+    day: "Jueves 11",
+    date: "2025-12-11",
+    startTime: "08:00",
     endTime: "13:00",
-    platform: "youtube",
+    platform: "facebook",
     channelId: "",
-    videoId: "jNQXAC9IVRw", // Video de ejemplo
-    description: "Explorando la inteligencia artificial",
+    videoId: "",
+    description:
+      "Primer día del Bootcamp intensivo de Ciberseguridad impartido por OWASP Cusco",
   },
   {
     id: 3,
-    title: "Guardianes Cyber - Bootcamp",
-    day: "Miércoles 03",
-    date: "2025-12-03",
-    startTime: "11:30",
+    title: "Bootcamp - Ciberseguridad (Día 2)",
+    day: "Viernes 12",
+    date: "2025-12-12",
+    startTime: "08:00",
     endTime: "13:00",
-    platform: "youtube",
-    channelId: "",
-    videoId: "M7lc1UVf-VE", // Video de ejemplo
-    description: "Bootcamp intensivo de ciberseguridad",
-  },
-  {
-    id: 4,
-    title: "Líderes del Cambio - Gestión TI",
-    day: "Jueves 04",
-    date: "2025-12-04",
-    startTime: "11:30",
-    endTime: "13:00",
-    platform: "youtube",
+    platform: "facebook",
     channelId: "",
     videoId: "",
-    description: "Liderazgo en tecnología",
-  },
-  {
-    id: 5,
-    title: "Cierre Triunfal - Clausura",
-    day: "Viernes 05",
-    date: "2025-12-05",
-    startTime: "11:30",
-    endTime: "13:00",
-    platform: "youtube",
-    channelId: "",
-    videoId: "",
-    description: "Cierre y entrega de certificados",
+    description:
+      "Segundo día del Bootcamp de Ciberseguridad con OWASP Cusco y cierre del evento",
   },
 ];
 

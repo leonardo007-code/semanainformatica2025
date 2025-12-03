@@ -1,5 +1,12 @@
-import { Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import styles from './Footer.module.css';
+import {
+  Mail,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
@@ -9,8 +16,9 @@ const Footer = () => {
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>DEV WEEK 2025</h3>
             <p className={styles.text}>
-              Evento estudiantil anual organizado por la carrera de Desarrollo de Sistemas
-              de Información del ISTTA.
+              Semana del Desarrollo del IESP Túpac Amaru. Evento tecnológico con
+              Bootcamp de Ciberseguridad y Gestión de TI. Del 10 al 12 de
+              diciembre.
             </p>
             <div className={styles.social}>
               <a
@@ -56,13 +64,13 @@ const Footer = () => {
             <h3 className={styles.columnTitle}>Enlaces Rápidos</h3>
             <ul className={styles.linkList}>
               <li>
-                <a href="#fechas" className={styles.link}>
-                  Fechas del Evento
+                <a href="#about" className={styles.link}>
+                  Acerca del Evento
                 </a>
               </li>
               <li>
-                <a href="#bootcamp" className={styles.link}>
-                  Bootcamp
+                <a href="#cronograma" className={styles.link}>
+                  Cronograma
                 </a>
               </li>
               <li>
@@ -73,11 +81,6 @@ const Footer = () => {
               <li>
                 <a href="#transmisiones" className={styles.link}>
                   Transmisiones
-                </a>
-              </li>
-              <li>
-                <a href="#registro" className={styles.link}>
-                  Inscripción
                 </a>
               </li>
             </ul>
@@ -97,7 +100,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.istta.edu.pe/" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                <a
+                  href="https://www.istta.edu.pe/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+                >
                   Sobre el ISTTA
                 </a>
               </li>
@@ -114,14 +122,17 @@ const Footer = () => {
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <Mail size={18} />
-                <a href="mailto:contacto@istta.edu.pe" className={styles.contactLink}>
+                <a
+                  href="mailto:contacto@istta.edu.pe"
+                  className={styles.contactLink}
+                >
                   contacto@istta.edu.pe
                 </a>
               </div>
               <div className={styles.contactItem}>
                 <MapPin size={18} />
                 <span className={styles.text}>
-                  Instituto de Educación Superior Túpac Amaru
+                  Auditórium del IESP Túpac Amaru, Cusco
                 </span>
               </div>
             </div>
@@ -130,10 +141,12 @@ const Footer = () => {
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2025 ISTTA - Instituto de Educación Superior Túpac Amaru. Todos los derechos reservados.
+            © 2025 IESP Túpac Amaru - Instituto de Educación Superior Público
+            Túpac Amaru. Todos los derechos reservados.
           </p>
           <p className={styles.credits}>
-            Desarrollado por estudiantes de Desarrollo de Sistemas de Información
+            Desarrollado por estudiantes de Desarrollo de Sistemas de
+            Información
           </p>
         </div>
       </div>

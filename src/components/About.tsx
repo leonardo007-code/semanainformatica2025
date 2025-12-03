@@ -72,14 +72,14 @@ export default function About() {
           </div>
           <div className={styles.aboutDivider}></div>
           <p className={styles.aboutDescription}>
-            DEV WEEK es la Semana Informática 2025, un evento anual, organizada
-            por estudiantes del VI ciclo de
+            DEV WEEK es la Semana del Desarrollo 2025, un evento anual
+            organizado por estudiantes del VI ciclo de
             <span style={{ fontWeight: 600, color: "var(--morado)" }}>
               {" "}
               Desarrollo de Sistemas de Información
             </span>
             . Un evento diseñado para inspirar, educar y conectar a la comunidad
-            tecnológica.
+            tecnológica del Cusco.
           </p>
         </div>
         <div className={styles.aboutGrid}>
