@@ -39,6 +39,35 @@
   transform: rotate(12deg) translateY(-25px) translateX(-15px);
 }
 
+/* Animación de salto para iconos */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Mobile: Icono encima del título con animación */
+@media (max-width: 768px) {
+  .titleWrapper {
+    flex-direction: column-reverse; /* Icono arriba, título abajo */
+    gap: 0.5rem;
+  }
+
+  .titleIcon {
+    opacity: 1;
+    transform: rotate(0deg);
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .titleWrapper:hover .titleIcon {
+    transform: rotate(0deg);
+  }
+}
+
 .divider {
   height: 4px;
   width: 100px;

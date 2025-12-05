@@ -38,6 +38,17 @@
   transform: rotate(12deg) translateY(-25px) translateX(-15px);
 }
 
+/* Animación de salto */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
 .divider {
   height: 4px;
   width: 100px;
@@ -237,6 +248,22 @@
 @media (max-width: 768px) {
   .section {
     padding: 3rem 1rem;
+  }
+
+  /* Icono encima del título con animación */
+  .titleWrapper {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+
+  .titleIcon {
+    opacity: 1;
+    transform: rotate(0deg);
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .titleWrapper:hover .titleIcon {
+    transform: rotate(0deg);
   }
 
   .grid {
