@@ -1,6 +1,7 @@
-/* Wrapper for the countdown clock */
+/* Wrapper for the countdown clock - Full width with comfortable padding */
 .countdownWrapper {
-  flex: 0 0 auto;
+  width: 100%;
+  padding: 0 1.5rem;
 }
 
 /* Header section */
@@ -107,20 +108,42 @@
   letter-spacing: 2px;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-  .countdownWrapper {
-    max-width: 100%;
+/* Responsive design - Multiple breakpoints for better scaling */
+
+/* Tablets landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .countdownTitle {
+    font-size: 1.4rem;
+    letter-spacing: 2.5px;
   }
 
+  .clockGrid {
+    gap: 1.5rem;
+  }
+
+  .clockItem {
+    padding: 1.75rem 0.875rem;
+  }
+
+  .value {
+    font-size: 3rem;
+  }
+
+  .label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets portrait (768px and below) */
+@media (max-width: 768px) {
   .countdownTitle {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     letter-spacing: 2px;
   }
 
   .clockGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   .clockItem {
@@ -128,11 +151,91 @@
   }
 
   .value {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
   }
 
   .label {
     font-size: 0.75rem;
-    margin-top: 0.75rem;
+  }
+}
+
+/* Mobile large (600px and below) - Mantener 4 columnas en una fila */
+@media (max-width: 600px) {
+  .countdownWrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .countdownHeader {
+    margin-bottom: 1.25rem;
+  }
+
+  .countdownTitle {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .countdownTitle::after {
+    width: 80px;
+  }
+
+  .clockGrid {
+    grid-template-columns: repeat(4, 1fr); /* Mantener 4 columnas */
+    gap: 0.5rem;
+  }
+
+  .clockItem {
+    padding: 1rem 0.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .value {
+    font-size: 2rem;
+  }
+
+  .label {
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Mobile small (480px and below) - 4 columnas más compactas */
+@media (max-width: 480px) {
+  .countdownWrapper {
+    padding: 0;
+  }
+
+  .countdownHeader {
+    margin-bottom: 1rem;
+  }
+
+  .countdownTitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .countdownTitle::after {
+    width: 60px;
+  }
+
+  .clockGrid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas siempre */
+    gap: 0.4rem;
+  }
+
+  .clockItem {
+    padding: 0.75rem 0.2rem;
+    border-radius: 0.5rem;
+  }
+
+  .value {
+    font-size: 1.5rem;
+  }
+
+  .label {
+    font-size: 0.55rem;
+    margin-top: 0.4rem;
+    letter-spacing: 0.5px;
   }
 }

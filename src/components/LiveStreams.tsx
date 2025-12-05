@@ -18,39 +18,39 @@ const STREAMS: Stream[] = [
     title: "Inauguración y Gestión de TI",
     day: "Miércoles 10",
     date: "2025-12-10",
-    startTime: "11:00",
+    startTime: "10:50",
     endTime: "13:00",
     platform: "facebook",
     channelId: "", // Agregar cuando tengas el canal
     videoId: "", // Video de ejemplo para testing
     description:
-      "Inicio oficial de la DEV WEEK 2025 con presentación del 4º semestre y ponencia sobre Gestión de TI por Tec. Rodrigo Salazar",
+      "¡Empieza a las 10:50 AM! Inicio oficial de la DEV WEEK 2025 con presentación del 4º semestre y ponencia sobre Gestión de TI por Tec. Rodrigo Salazar",
   },
   {
     id: 2,
     title: "Bootcamp - Ciberseguridad (Día 1)",
     day: "Jueves 11",
     date: "2025-12-11",
-    startTime: "08:00",
-    endTime: "13:00",
+    startTime: "11:00",
+    endTime: "16:00",
     platform: "facebook",
     channelId: "",
     videoId: "",
     description:
-      "Primer día del Bootcamp intensivo de Ciberseguridad impartido por OWASP Cusco",
+      "¡Empieza a las 11:00 AM! Primer día del Bootcamp intensivo de Ciberseguridad de 5 horas impartido por OWASP Cusco",
   },
   {
     id: 3,
     title: "Bootcamp - Ciberseguridad (Día 2)",
     day: "Viernes 12",
     date: "2025-12-12",
-    startTime: "08:00",
-    endTime: "13:00",
+    startTime: "11:00",
+    endTime: "16:00",
     platform: "facebook",
     channelId: "",
     videoId: "",
     description:
-      "Segundo día del Bootcamp de Ciberseguridad con OWASP Cusco y cierre del evento",
+      "¡Empieza a las 11:00 AM! Segundo día del Bootcamp de Ciberseguridad con OWASP Cusco y cierre del evento",
   },
 ];
 

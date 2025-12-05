@@ -7,7 +7,7 @@ export const diasEvento = [
     nombre: "Miércoles 10",
     tema: "Inauguración y Gestión de TI",
     fecha: "10 de diciembre",
-    hora: "11:00 - 13:00 hrs.",
+    hora: "10:50 - 13:00 hrs.",
     descripcion:
       "Inicio oficial de la DEV WEEK 2025 con palabras de bienvenida, presentación del 4º semestre y ponencia sobre Gestión de TI.",
     actividades: [
@@ -39,7 +39,6 @@ export const diasEvento = [
       {
         titulo: "Gestión de TI",
         subtitulo: "Tec. Rodrigo Salazar - Especialista en Gestión de TI",
-        celular: "965933455",
         hora: "12:10 - 12:50",
       },
       {
@@ -54,27 +53,27 @@ export const diasEvento = [
     nombre: "Jueves 11",
     tema: "Bootcamp - Ciberseguridad (Día 1)",
     fecha: "11 de diciembre",
-    hora: "08:00 - 13:00 hrs.",
+    hora: "11:00 - 16:00 hrs.",
     descripcion:
       "Primer día del Bootcamp intensivo de Ciberseguridad impartido por OWASP Cusco, organización dedicada a mejorar la seguridad del software.",
     actividades: [
       {
         titulo: "Bootcamp de Ciberseguridad - Primera Parte",
         subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "08:00 - 10:30",
+        hora: "11:00 - 13:00",
       },
       {
         titulo: "Descanso del Bootcamp",
-        hora: "10:30 - 11:00",
+        hora: "13:00 - 13:15",
       },
       {
         titulo: "Bootcamp de Ciberseguridad - Segunda Parte",
         subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "11:00 - 13:00",
+        hora: "13:15 - 15:50",
       },
       {
         titulo: "Actividad y sorteo de premios",
-        hora: "13:00 - 13:10",
+        hora: "15:50 - 16:00",
       },
     ],
     destacado: true,
@@ -84,27 +83,27 @@ export const diasEvento = [
     nombre: "Viernes 12",
     tema: "Bootcamp - Ciberseguridad (Día 2)",
     fecha: "12 de diciembre",
-    hora: "08:00 - 13:00 hrs.",
+    hora: "11:00 - 16:00 hrs.",
     descripcion:
       "Segundo día del Bootcamp intensivo de Ciberseguridad con OWASP Cusco. Cierre del evento con entrega de certificados.",
     actividades: [
       {
         titulo: "Bootcamp de Ciberseguridad - Primera Parte",
         subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "08:00 - 10:30",
+        hora: "11:00 - 13:00",
       },
       {
         titulo: "Descanso del Bootcamp",
-        hora: "10:30 - 11:00",
+        hora: "13:00 - 13:15",
       },
       {
         titulo: "Bootcamp de Ciberseguridad - Segunda Parte",
         subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "11:00 - 13:00",
+        hora: "13:15 - 15:50",
       },
       {
         titulo: "Actividad, sorteo de premios y cierre del evento",
-        hora: "13:00 - 13:10",
+        hora: "15:50 - 16:00",
       },
     ],
     destacado: true,

@@ -32,7 +32,7 @@ const SPEAKERS_DATA: Speaker[] = [
     bio: "Miembro de OWASP Cusco, capítulo local de la Fundación OWASP dedicado a mejorar la seguridad del software en la región. Especialista en ciberseguridad y desarrollo seguro.",
     topic: "Bootcamp - Ciberseguridad",
     day: "Jueves 11",
-    time: "08:00 - 13:00",
+    time: "11:00 - 16:00",
     image: "/placeholder-speaker.jpg",
   },
   {
@@ -42,7 +42,7 @@ const SPEAKERS_DATA: Speaker[] = [
     bio: "Miembro de OWASP Cusco, organización dedicada a mejorar la seguridad del software. Experto en seguridad informática, proyectos colaborativos de código abierto y mejores prácticas de desarrollo seguro.",
     topic: "Bootcamp - Ciberseguridad",
     day: "Jueves 11",
-    time: "08:00 - 13:00",
+    time: "11:00 - 16:00",
     image: "/placeholder-speaker.jpg",
   },
   {
@@ -52,7 +52,7 @@ const SPEAKERS_DATA: Speaker[] = [
     bio: "Miembro de OWASP Cusco, especializado en seguridad del software y ciberseguridad. Colabora en eventos gratuitos para compartir conocimientos y fomentar el aprendizaje comunitario en la región.",
     topic: "Bootcamp - Ciberseguridad",
     day: "Viernes 12",
-    time: "08:00 - 13:00",
+    time: "11:00 - 16:00",
     image: "/placeholder-speaker.jpg",
   },
   {

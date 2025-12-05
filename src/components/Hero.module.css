@@ -448,14 +448,43 @@
   font-weight: 500;
 }
 
+/* Responsive design - Multiple breakpoints */
+
+/* Tablets landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .logo50,
+  .heroLogo {
+    max-width: 200px;
+  }
+}
+
+/* Tablets portrait (768px and below) */
 @media (max-width: 768px) {
   .hero {
     padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .container {
+    gap: 2.5rem;
   }
 
   .logoContainer {
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .logo50 {
@@ -477,13 +506,32 @@
     font-size: 1.2rem;
   }
 
+  .content {
+    text-align: center;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
   .badge {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
   }
 
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .ctaGroup {
     flex-direction: column;
+    width: 100%;
   }
 
   .btnPrimary,
@@ -494,5 +542,100 @@
 
   .infoCard {
     padding: 1rem 1.5rem;
+  }
+
+  .institution {
+    font-size: 1rem;
+  }
+
+  .carrera {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile large (600px and below) */
+@media (max-width: 600px) {
+  .hero {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .logo50,
+  .heroLogo {
+    max-width: 140px;
+  }
+
+  .content h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .badge {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .infoCard {
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+/* Mobile small (480px and below) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 1rem 0.5rem;
+  }
+
+  .logoContainer {
+    gap: 0.75rem;
+  }
+
+  .logo50,
+  .heroLogo {
+    max-width: 120px;
+  }
+
+  .logoPlaceholder {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.85rem;
+  }
+
+  .badge {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .infoCard {
+    padding: 0.75rem 1rem;
+  }
+
+  .institution {
+    font-size: 0.95rem;
+  }
+
+  .carrera {
+    font-size: 0.85rem;
   }
 }
