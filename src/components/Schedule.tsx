@@ -84,10 +84,15 @@ export default function Schedule() {
           ))}
         </div>
         <div className={styles.downloadRow}>
-          <button className={styles.downloadBtn}>
+          <a
+            href="/cronograma-devweek-2025.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.downloadBtn}
+          >
             <Download className={styles.downloadIcon} />
             Descargar Cronograma Completo
-          </button>
+          </a>
         </div>
       </div>
       {selectedDay && (
@@ -141,8 +146,15 @@ export default function Schedule() {
                             {actividad.hora}
                           </span>
                         )}
-                        <div className={styles.actividadTitulo}>
-                          {actividad.titulo}
+                        <div className={styles.actividadTituloWrapper}>
+                          <span className={styles.actividadTitulo}>
+                            {actividad.titulo}
+                          </span>
+                          {actividad.subtitulo && (
+                            <span className={styles.actividadSubtitulo}>
+                              — {actividad.subtitulo}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </li>

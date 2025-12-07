@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cronograma DEV WEEK 2025</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --morado: #61398c;
+        --morado-light: #8b5fbf;
+        --dorado: #fbbc30;
+        --negro: #1a1a1a;
+        --gris: #6b7280;
+        --blanco: #ffffff;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html,
+      body {
+        width: 210mm;
+        background: white;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--negro);
+        line-height: 1.5;
+      }
+
+      /* Cada página es exactamente A4 */
+      .page {
+        width: 210mm;
+        height: 297mm;
+        padding: 12mm 15mm;
+        display: flex;
+        flex-direction: column;
+        background: white;
+      }
+
+      /* ========== HEADER ========== */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--morado);
+        margin-bottom: 12px;
+      }
+
+      .header img {
+        width: 50px;
+        height: auto;
+      }
+
+      .header-center {
+        flex: 1;
+        text-align: center;
+      }
+
+      .header-center h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--morado);
+        line-height: 1.3;
+      }
+
+      .header-center p {
+        font-size: 9px;
+        color: var(--gris);
+      }
+
+      /* ========== BRANDING ========== */
+      .branding {
+        text-align: center;
+        margin-bottom: 12px;
+      }
+
+      .branding img {
+        width: 90px;
+        margin-bottom: 6px;
+      }
+
+      .branding h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--morado);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .branding .info {
+        font-size: 9px;
+        color: var(--gris);
+        margin-top: 3px;
+      }
+
+      /* ========== TITLE ========== */
+      .title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--morado);
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .title span {
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: var(--dorado);
+        margin: 6px auto 0;
+      }
+
+      /* ========== DAY CARD ========== */
+      .card {
+        flex: 1;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-header {
+        background: linear-gradient(135deg, var(--morado), var(--morado-light));
+        padding: 10px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .card-header .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .badge {
+        background: var(--dorado);
+        color: var(--morado);
+        font-family: "Montserrat", sans-serif;
+        font-size: 9px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 12px;
+      }
+
+      .date {
+        color: white;
+        font-size: 10px;
+      }
+
+      .time {
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .theme {
+        background: rgba(251, 188, 48, 0.1);
+        padding: 8px 16px;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--morado);
+        border-left: 3px solid var(--dorado);
+      }
+
+      .content {
+        flex: 1;
+        padding: 12px 16px;
+      }
+
+      /* ========== SCHEDULE ========== */
+      .item {
+        display: flex;
+        gap: 12px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .item:last-child {
+        border-bottom: none;
+      }
+
+      .item-time {
+        width: 75px;
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--morado);
+      }
+
+      .item-title {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--negro);
+      }
+
+      .item-speaker {
+        font-size: 9px;
+        color: var(--gris);
+        margin-top: 1px;
+      }
+
+      /* ========== FOOTER ========== */
+      .footer {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--morado);
+        text-align: center;
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-bottom: 6px;
+      }
+
+      .footer-item strong {
+        display: block;
+        font-size: 7px;
+        color: var(--morado);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .footer-item span {
+        font-size: 8px;
+        color: var(--gris);
+      }
+
+      .footer-org {
+        font-size: 8px;
+        color: var(--negro);
+      }
+
+      /* Print button */
+      .print-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--morado);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .print-btn:hover {
+        background: var(--morado-light);
+      }
+
+      @media print {
+        .print-btn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="print-btn" onclick="window.print()">📥 Descargar PDF</button>
+
+    <!-- PÁGINA 1 -->
+    <div class="page">
+      <header class="header">
+        <img src="/logo-oficial-IESP-tupac-amaru.png" alt="IESP" />
+        <div class="header-center">
+          <h1>Instituto de Educación Superior Público "Túpac Amaru" - Cusco</h1>
+          <p>Programa de Estudios: Desarrollo de Sistemas de Información</p>
+        </div>
+        <img src="/logo-desarrollo-de-sistemas-de-informacion.png" alt="DSI" />
+      </header>
+
+      <div class="branding">
+        <img src="/logo-dev-week-cronograma.png" alt="DEV WEEK" />
+        <h2>Cronograma Oficial — DEV WEEK 2025</h2>
+        <p class="info">
+          10 al 12 de Diciembre de 2025 · Auditorio del IESP Túpac Amaru
+        </p>
+      </div>
+
+      <div class="title">Programa del Evento<span></span></div>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="left">
+            <span class="badge">DÍA 1</span>
+            <span class="date">Miércoles, 10 de Diciembre</span>
+          </div>
+          <span class="time">10:50 — 13:00</span>
+        </div>
+        <div class="theme">Inauguración y Gestión de TI</div>
+        <div class="content">
+          <div class="item">
+            <div class="item-time">10:50 – 11:00</div>
+            <div>
+              <div class="item-title">Recepción y registro de asistencia</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">11:10 – 11:21</div>
+            <div>
+              <div class="item-title">Ceremonia de apertura</div>
+              <div class="item-speaker">
+                Himno Nacional del Perú e Himno al Cusco
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">11:21 – 11:30</div>
+            <div>
+              <div class="item-title">Palabras de bienvenida</div>
+              <div class="item-speaker">
+                Coordinador del Programa de Estudios
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">11:30 – 12:10</div>
+            <div>
+              <div class="item-title">Presentación y ponencia académica</div>
+              <div class="item-speaker">
+                Estudiantes del 4º Semestre — Desarrollo de Sistemas de
+                Información
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">12:10 – 12:50</div>
+            <div>
+              <div class="item-title">Ponencia: Gestión de TI</div>
+              <div class="item-speaker">
+                Tec. Rodrigo Salazar — Especialista en Gestión de TI
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">12:50 – 13:00</div>
+            <div>
+              <div class="item-title">
+                Actividad interactiva y sorteo de premios
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <div class="footer-item">
+            <strong>Transmisión</strong><span>TikTok y Facebook Live</span>
+          </div>
+          <div class="footer-item">
+            <strong>Ingreso</strong><span>Libre</span>
+          </div>
+          <div class="footer-item">
+            <strong>Certificación</strong
+            ><span>Digital (para estudiantes)</span>
+          </div>
+        </div>
+        <p class="footer-org">
+          Organizado por los estudiantes del VI Semestre — Promoción 2025
+        </p>
+      </footer>
+    </div>
+
+    <!-- PÁGINA 2 -->
+    <div class="page">
+      <header class="header">
+        <img src="/logo-oficial-IESP-tupac-amaru.png" alt="IESP" />
+        <div class="header-center">
+          <h1>Instituto de Educación Superior Público "Túpac Amaru" - Cusco</h1>
+          <p>Programa de Estudios: Desarrollo de Sistemas de Información</p>
+        </div>
+        <img src="/logo-desarrollo-de-sistemas-de-informacion.png" alt="DSI" />
+      </header>
+
+      <div class="branding">
+        <img src="/logo-dev-week-cronograma.png" alt="DEV WEEK" />
+        <h2>Cronograma Oficial — DEV WEEK 2025</h2>
+        <p class="info">
+          10 al 12 de Diciembre de 2025 · Auditorio del IESP Túpac Amaru
+        </p>
+      </div>
+
+      <div class="title">Programa del Evento<span></span></div>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="left">
+            <span class="badge">DÍA 2</span>
+            <span class="date">Jueves, 11 de Diciembre</span>
+          </div>
+          <span class="time">11:00 — 16:00</span>
+        </div>
+        <div class="theme">Bootcamp de Ciberseguridad — Primera Jornada</div>
+        <div class="content">
+          <div class="item">
+            <div class="item-time">11:00 – 12:00</div>
+            <div>
+              <div class="item-title">
+                Ponencia: Introducción a la Ciberseguridad
+              </div>
+              <div class="item-speaker">Jim Cardenas Cruz — OWASP Cusco</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">12:00 – 13:00</div>
+            <div>
+              <div class="item-title">Reto Guiado en Laboratorios</div>
+              <div class="item-speaker">
+                Práctica supervisada por instructores OWASP
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">13:00 – 13:15</div>
+            <div><div class="item-title">Receso</div></div>
+          </div>
+          <div class="item">
+            <div class="item-time">14:00 – 15:00</div>
+            <div>
+              <div class="item-title">
+                Ponencia: Seguridad en Aplicaciones Web
+              </div>
+              <div class="item-speaker">
+                Everth Juvenal Gallegos Puma — OWASP Cusco
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">15:00 – 15:50</div>
+            <div>
+              <div class="item-title">Reto Guiado en Laboratorios</div>
+              <div class="item-speaker">
+                Práctica supervisada por instructores OWASP
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">15:50 – 16:00</div>
+            <div>
+              <div class="item-title">
+                Actividad interactiva y sorteo de premios
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <div class="footer-item">
+            <strong>Transmisión</strong><span>TikTok y Facebook Live</span>
+          </div>
+          <div class="footer-item">
+            <strong>Ingreso</strong><span>Libre</span>
+          </div>
+          <div class="footer-item">
+            <strong>Certificación</strong
+            ><span>Digital (para estudiantes)</span>
+          </div>
+        </div>
+        <p class="footer-org">
+          Organizado por los estudiantes del VI Semestre — Promoción 2025
+        </p>
+      </footer>
+    </div>
+
+    <!-- PÁGINA 3 -->
+    <div class="page">
+      <header class="header">
+        <img src="/logo-oficial-IESP-tupac-amaru.png" alt="IESP" />
+        <div class="header-center">
+          <h1>Instituto de Educación Superior Público "Túpac Amaru" - Cusco</h1>
+          <p>Programa de Estudios: Desarrollo de Sistemas de Información</p>
+        </div>
+        <img src="/logo-desarrollo-de-sistemas-de-informacion.png" alt="DSI" />
+      </header>
+
+      <div class="branding">
+        <img src="/logo-dev-week-cronograma.png" alt="DEV WEEK" />
+        <h2>Cronograma Oficial — DEV WEEK 2025</h2>
+        <p class="info">
+          10 al 12 de Diciembre de 2025 · Auditorio del IESP Túpac Amaru
+        </p>
+      </div>
+
+      <div class="title">Programa del Evento<span></span></div>
+
+      <article class="card">
+        <div class="card-header">
+          <div class="left">
+            <span class="badge">DÍA 3</span>
+            <span class="date">Viernes, 12 de Diciembre</span>
+          </div>
+          <span class="time">11:00 — 16:00</span>
+        </div>
+        <div class="theme">
+          Bootcamp de Ciberseguridad — Segunda Jornada y Clausura
+        </div>
+        <div class="content">
+          <div class="item">
+            <div class="item-time">11:00 – 12:00</div>
+            <div>
+              <div class="item-title">Ponencia: Hacking Ético y Pentesting</div>
+              <div class="item-speaker">Jim Cardenas Cruz — OWASP Cusco</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">12:00 – 13:00</div>
+            <div>
+              <div class="item-title">Reto Guiado en Laboratorios</div>
+              <div class="item-speaker">
+                Práctica supervisada por instructores OWASP
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">13:00 – 13:15</div>
+            <div><div class="item-title">Receso</div></div>
+          </div>
+          <div class="item">
+            <div class="item-time">14:00 – 15:00</div>
+            <div>
+              <div class="item-title">
+                Ponencia: Defensa y Respuesta ante Incidentes
+              </div>
+              <div class="item-speaker">
+                Alejandro Miguel Choqueluque García — OWASP Cusco
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">15:00 – 15:50</div>
+            <div>
+              <div class="item-title">Reto Guiado en Laboratorios</div>
+              <div class="item-speaker">
+                Práctica supervisada por instructores OWASP
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-time">15:50 – 16:00</div>
+            <div>
+              <div class="item-title">Ceremonia de Clausura</div>
+              <div class="item-speaker">
+                Sorteo de premios y entrega de certificados digitales
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <div class="footer-item">
+            <strong>Transmisión</strong><span>TikTok y Facebook Live</span>
+          </div>
+          <div class="footer-item">
+            <strong>Ingreso</strong><span>Libre</span>
+          </div>
+          <div class="footer-item">
+            <strong>Certificación</strong
+            ><span>Digital (para estudiantes)</span>
+          </div>
+        </div>
+        <p class="footer-org">
+          Organizado por los estudiantes del VI Semestre — Promoción 2025
+        </p>
+      </footer>
+    </div>
+
+    <!-- Mensaje de generación -->
+    <div
+      id="loading-overlay"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        font-family: 'Montserrat', sans-serif;
+      "
+    >
+      <img
+        src="/logo-dev-week-cronograma.png"
+        style="width: 150px; margin-bottom: 20px"
+      />
+      <p style="font-size: 18px; color: #61398c; font-weight: 600">
+        Generando PDF...
+      </p>
+      <p style="font-size: 14px; color: #666; margin-top: 10px">
+        Por favor espera un momento
+      </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      window.onload = async function () {
+        const overlay = document.getElementById("loading-overlay");
+
+        // Esperar a que carguen las imágenes
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        const pages = document.querySelectorAll(".page");
+        const { jsPDF } = window.jspdf;
+
+        // Crear PDF A4
+        const pdf = new jsPDF({
+          orientation: "portrait",
+          unit: "mm",
+          format: "a4",
+        });
+
+        const pdfWidth = 210;
+        const pdfHeight = 297;
+
+        for (let i = 0; i < pages.length; i++) {
+          // Capturar cada página como canvas
+          const canvas = await html2canvas(pages[i], {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            backgroundColor: "#ffffff",
+          });
+
+          // Convertir a imagen
+          const imgData = canvas.toDataURL("image/jpeg", 0.95);
+
+          // Añadir nueva página si no es la primera
+          if (i > 0) {
+            pdf.addPage();
+          }
+
+          // Añadir imagen al PDF
+          pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
+        }
+
+        // Guardar PDF
+        pdf.save("Cronograma-DEV-WEEK-2025.pdf");
+
+        // Mostrar mensaje de éxito
+        overlay.innerHTML = `
+          <img src="/logo-dev-week-cronograma.png" style="width: 150px; margin-bottom: 20px;" />
+          <p style="font-size: 18px; color: #61398c; font-weight: 600;">¡PDF descargado!</p>
+          <p style="font-size: 14px; color: #666; margin-top: 10px;">Puedes cerrar esta pestaña</p>
+        `;
+      };
+    </script>
+  </body>
+</html>

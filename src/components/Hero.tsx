@@ -4,12 +4,7 @@ import { enterStagger } from "../utils/animations";
 import CountdownClock from "./CountdownClock";
 import styles from "./Hero.module.css";
 
-interface HeroProps {
-  onScrollToRegister: () => void;
-  onScrollToStreams: () => void;
-}
-
-const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
+const Hero = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -134,30 +129,33 @@ const Hero = ({ onScrollToRegister, onScrollToStreams }: HeroProps) => {
           <div ref={ctaRef} className={styles.ctaGroup}>
             <button
               onClick={() => {
-                const el = document.getElementById("fechas");
+                const el = document.getElementById("cronograma");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className={styles.btnSecondary}
-              aria-label="Ver agenda del evento"
+              aria-label="Ver cronograma del evento"
             >
-              Ver agenda
-            </button>
-            <button
-              onClick={onScrollToRegister}
-              className={styles.btnPrimary}
-              aria-label="Inscríbete al evento"
-            >
-              Inscríbete
+              Ver Cronograma
             </button>
             <button
               onClick={() => {
                 const el = document.getElementById("transmisiones");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className={styles.btnSecondary}
+              className={styles.btnPrimaryPurple}
               aria-label="Ver transmisiones en vivo"
             >
-              Ver transmisiones
+              Ver Transmisiones
+            </button>
+            <button
+              onClick={() => {
+                const el = document.getElementById("ponentes");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={styles.btnSecondary}
+              aria-label="Conocer ponentes del evento"
+            >
+              Conocer Ponentes
             </button>
           </div>
         </div>

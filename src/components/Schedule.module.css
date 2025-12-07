@@ -324,6 +324,7 @@
 .downloadBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: var(--morado);
   color: var(--blanco);
@@ -335,6 +336,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid var(--morado);
+  text-decoration: none;
 }
 
 .downloadBtn:hover {
@@ -762,6 +764,27 @@
   padding: 2px 8px;
   font-weight: 500;
   margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.actividadTituloWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  flex: 1;
+}
+
+.actividadTitulo {
+  font-weight: 700;
+  color: var(--morado);
+  font-size: 1.08em;
+}
+
+.actividadSubtitulo {
+  color: var(--plomo);
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 /* Estilos eliminados - todos los modales usan mismo estilo morado */

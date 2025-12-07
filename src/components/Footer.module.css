@@ -123,8 +123,26 @@
 
 .credits {
   font-size: 0.85rem;
-  opacity: 0.75;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.creditsText {
   color: var(--dorado);
+}
+
+.creditsLogo {
+  height: 24px;
+  width: auto;
+  filter: brightness(1.1);
+  transition: transform 0.3s ease;
+}
+
+.creditsLogo:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

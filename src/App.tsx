@@ -1,4 +1,4 @@
-import { useRef, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
@@ -10,17 +10,6 @@ const LiveStreams = lazy(() => import("./components/LiveStreams"));
 const Sponsors = lazy(() => import("./components/Sponsors"));
 
 function App() {
-  const registerRef = useRef<HTMLDivElement>(null);
-  const streamsRef = useRef<HTMLElement>(null);
-
-  const scrollToRegister = () => {
-    registerRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToStreams = () => {
-    streamsRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
       {/* Accessibility: Skip to main content */}
@@ -28,10 +17,7 @@ function App() {
         Saltar al contenido principal
       </a>
 
-      <Hero
-        onScrollToRegister={scrollToRegister}
-        onScrollToStreams={scrollToStreams}
-      />
+      <Hero />
 
       <main id="main-content">
         {/* Suspense boundary for each section to load independently */}

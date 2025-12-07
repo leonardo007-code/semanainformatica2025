@@ -13,37 +13,32 @@ export const diasEvento = [
     actividades: [
       {
         titulo: "Recepción y registro de asistencia",
-        hora: "10:50 - 11:00",
+        hora: "10:50 – 11:00",
       },
       {
-        titulo: "Presentación de la Semana del Desarrollo",
-        hora: "11:10 - 11:15",
+        titulo: "Ceremonia de apertura",
+        subtitulo: "Himno Nacional del Perú e Himno al Cusco",
+        hora: "11:10 – 11:21",
       },
       {
-        titulo: "Himno Nacional e Himno al Cusco",
-        hora: "11:15 - 11:21",
-      },
-      {
-        titulo: "Palabras de Bienvenida",
+        titulo: "Palabras de bienvenida",
         subtitulo: "Coordinador del Programa de Estudios",
-        hora: "11:21 - 11:30",
+        hora: "11:21 – 11:30",
       },
       {
-        titulo: "Presentación del 4º Semestre",
-        hora: "11:30 - 11:50",
+        titulo: "Presentación y ponencia académica",
+        subtitulo:
+          "Estudiantes del 4º Semestre — Desarrollo de Sistemas de Información",
+        hora: "11:30 – 12:10",
       },
       {
-        titulo: "Ponencia Académica del 4º Semestre",
-        hora: "11:50 - 12:10",
+        titulo: "Ponencia: Gestión de TI",
+        subtitulo: "Tec. Rodrigo Salazar — Especialista en Gestión de TI",
+        hora: "12:10 – 12:50",
       },
       {
-        titulo: "Gestión de TI",
-        subtitulo: "Tec. Rodrigo Salazar - Especialista en Gestión de TI",
-        hora: "12:10 - 12:50",
-      },
-      {
-        titulo: "Actividad y sorteo de premios",
-        hora: "12:50 - 13:00",
+        titulo: "Actividad interactiva y sorteo de premios",
+        hora: "12:50 – 13:00",
       },
     ],
     destacado: false,
@@ -58,22 +53,32 @@ export const diasEvento = [
       "Primer día del Bootcamp intensivo de Ciberseguridad impartido por OWASP Cusco, organización dedicada a mejorar la seguridad del software.",
     actividades: [
       {
-        titulo: "Bootcamp de Ciberseguridad - Primera Parte",
-        subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "11:00 - 13:00",
+        titulo: "Ponencia: Introducción a la Ciberseguridad",
+        subtitulo: "Jim Cardenas Cruz — OWASP Cusco",
+        hora: "11:00 – 12:00",
       },
       {
-        titulo: "Descanso del Bootcamp",
-        hora: "13:00 - 13:15",
+        titulo: "Reto Guiado en Laboratorios",
+        subtitulo: "Práctica supervisada por instructores OWASP",
+        hora: "12:00 – 13:00",
       },
       {
-        titulo: "Bootcamp de Ciberseguridad - Segunda Parte",
-        subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "13:15 - 15:50",
+        titulo: "Receso",
+        hora: "13:00 – 13:15",
       },
       {
-        titulo: "Actividad y sorteo de premios",
-        hora: "15:50 - 16:00",
+        titulo: "Ponencia: Seguridad en Aplicaciones Web",
+        subtitulo: "Everth Juvenal Gallegos Puma — OWASP Cusco",
+        hora: "14:00 – 15:00",
+      },
+      {
+        titulo: "Reto Guiado en Laboratorios",
+        subtitulo: "Práctica supervisada por instructores OWASP",
+        hora: "15:00 – 15:50",
+      },
+      {
+        titulo: "Actividad interactiva y sorteo de premios",
+        hora: "15:50 – 16:00",
       },
     ],
     destacado: true,
@@ -85,25 +90,36 @@ export const diasEvento = [
     fecha: "12 de diciembre",
     hora: "11:00 - 16:00 hrs.",
     descripcion:
-      "Segundo día del Bootcamp intensivo de Ciberseguridad con OWASP Cusco. Cierre del evento con entrega de certificados.",
+      "Segundo día del Bootcamp intensivo de Ciberseguridad con OWASP Cusco. Cierre del evento con ceremonia de clausura y entrega de certificados.",
     actividades: [
       {
-        titulo: "Bootcamp de Ciberseguridad - Primera Parte",
-        subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "11:00 - 13:00",
+        titulo: "Ponencia: Hacking Ético y Pentesting",
+        subtitulo: "Jim Cardenas Cruz — OWASP Cusco",
+        hora: "11:00 – 12:00",
       },
       {
-        titulo: "Descanso del Bootcamp",
-        hora: "13:00 - 13:15",
+        titulo: "Reto Guiado en Laboratorios",
+        subtitulo: "Práctica supervisada por instructores OWASP",
+        hora: "12:00 – 13:00",
       },
       {
-        titulo: "Bootcamp de Ciberseguridad - Segunda Parte",
-        subtitulo: "OWASP Cusco - Fundación OWASP",
-        hora: "13:15 - 15:50",
+        titulo: "Receso",
+        hora: "13:00 – 13:15",
       },
       {
-        titulo: "Actividad, sorteo de premios y cierre del evento",
-        hora: "15:50 - 16:00",
+        titulo: "Ponencia: Defensa y Respuesta ante Incidentes",
+        subtitulo: "Alejandro Miguel Choqueluque García — OWASP Cusco",
+        hora: "14:00 – 15:00",
+      },
+      {
+        titulo: "Reto Guiado en Laboratorios",
+        subtitulo: "Práctica supervisada por instructores OWASP",
+        hora: "15:00 – 15:50",
+      },
+      {
+        titulo: "Ceremonia de Clausura",
+        subtitulo: "Sorteo de premios y entrega de certificados digitales",
+        hora: "15:50 – 16:00",
       },
     ],
     destacado: true,

@@ -425,6 +425,24 @@
   transform: translateY(-2px);
 }
 
+.btnPrimaryPurple {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all var(--transition-base);
+  min-width: 180px;
+  background-color: var(--dorado);
+  color: var(--morado);
+  box-shadow: var(--shadow-md);
+}
+
+.btnPrimaryPurple:hover {
+  background-color: #f5b520;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
 .infoCard {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
