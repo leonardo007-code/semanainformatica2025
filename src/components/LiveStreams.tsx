@@ -18,39 +18,36 @@ const STREAMS: Stream[] = [
     title: "Inauguración y Gestión de TI",
     day: "Miércoles 10",
     date: "2025-12-10",
-    startTime: "10:50",
+    startTime: "11:00",
     endTime: "13:00",
     platform: "facebook",
-    channelId: "", // Agregar cuando tengas el canal
-    videoId: "", // Video de ejemplo para testing
+    embedUrl: "",
     description:
-      "¡Empieza a las 10:50 AM! Inicio oficial de la DEV WEEK 2025 con presentación del 4º semestre y ponencia sobre Gestión de TI por Tec. Rodrigo Salazar",
+      "Inicio oficial de la DEV WEEK 2025 con presentación del 4º semestre y ponencia sobre Gestión de TI por Tec. Rodrigo Salazar",
   },
   {
     id: 2,
     title: "Bootcamp - Ciberseguridad (Día 1)",
     day: "Jueves 11",
     date: "2025-12-11",
-    startTime: "11:00",
-    endTime: "16:00",
+    startTime: "08:00",
+    endTime: "13:00",
     platform: "facebook",
-    channelId: "",
-    videoId: "",
+    embedUrl: "",
     description:
-      "¡Empieza a las 11:00 AM! Primer día del Bootcamp intensivo de Ciberseguridad de 5 horas impartido por OWASP Cusco",
+      "Primer día del Bootcamp intensivo de Ciberseguridad impartido por OWASP Cusco",
   },
   {
     id: 3,
     title: "Bootcamp - Ciberseguridad (Día 2)",
     day: "Viernes 12",
     date: "2025-12-12",
-    startTime: "11:00",
-    endTime: "16:00",
+    startTime: "08:00",
+    endTime: "13:00",
     platform: "facebook",
-    channelId: "",
-    videoId: "",
+    embedUrl: "",
     description:
-      "¡Empieza a las 11:00 AM! Segundo día del Bootcamp de Ciberseguridad con OWASP Cusco y cierre del evento",
+      "Segundo día del Bootcamp de Ciberseguridad con OWASP Cusco y cierre del evento",
   },
 ];
 
@@ -180,65 +177,6 @@ const LiveStreams = () => {
               Sigue todos los eventos en tiempo real desde donde estés
             </p>
           </div>
-
-          {/* Stream del día destacado */}
-          {todayStream && (
-            <div className={styles.todayStream}>
-              <div className={styles.todayHeader}>
-                <Calendar size={20} />
-                <span>Stream de Hoy</span>
-              </div>
-              <div
-                className={`${styles.featuredCard} ${
-                  styles[todayStream.status]
-                }`}
-              >
-                {todayStream.status === "live" && (
-                  <div className={styles.liveBadge}>
-                    <span className={styles.liveDot}></span>
-                    EN VIVO AHORA
-                  </div>
-                )}
-
-                <div className={styles.featuredContent}>
-                  <h3 className={styles.featuredTitle}>{todayStream.title}</h3>
-                  <p className={styles.featuredDesc}>
-                    {todayStream.description}
-                  </p>
-
-                  <div className={styles.featuredInfo}>
-                    <div className={styles.infoItem}>
-                      <Clock size={18} style={{ color: "var(--dorado)" }} />
-                      <span>
-                        {todayStream.startTime} - {todayStream.endTime} hrs.
-                      </span>
-                    </div>
-                    <div className={styles.platformBadge}>
-                      {todayStream.platform}
-                    </div>
-                  </div>
-
-                  {todayStream.status === "upcoming" &&
-                    todayStream.timeUntilStart && (
-                      <CountdownTimer
-                        timeUntilStart={todayStream.timeUntilStart}
-                      />
-                    )}
-
-                  <button
-                    onClick={() => openModal(todayStream)}
-                    className={`${styles.watchBtn} ${styles.featured}`}
-                    disabled={todayStream.status === "scheduled"}
-                  >
-                    {todayStream.status === "live" && "Ver Live"}
-                    {todayStream.status === "upcoming" && "Ver Video"}
-                    {todayStream.status === "recorded" && "Ver Video"}
-                    {todayStream.status === "scheduled" && "Próximamente"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Grid de streams */}
           <div className={styles.grid}>

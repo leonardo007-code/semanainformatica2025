@@ -35,9 +35,9 @@ function App() {
           <Speakers />
         </Suspense>
 
-        <Suspense fallback={<div style={{ minHeight: "400px" }} />}>
+        {/*<Suspense fallback={<div style={{ minHeight: "400px" }} />}>
           <LiveStreams />
-        </Suspense>
+        </Suspense>*/}
 
         {/*<div ref={registerRef}>
           <Suspense fallback={<div style={{ minHeight: "400px" }} />}>
