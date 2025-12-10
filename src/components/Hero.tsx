@@ -137,7 +137,7 @@ const Hero = () => {
             >
               Ver Cronograma
             </button>
-            <button
+            {/*<button
               onClick={() => {
                 const el = document.getElementById("transmisiones");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -146,7 +146,7 @@ const Hero = () => {
               aria-label="Ver transmisiones en vivo"
             >
               Ver Transmisiones
-            </button>
+            </button>*/}
             <button
               onClick={() => {
                 const el = document.getElementById("ponentes");
